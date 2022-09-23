@@ -1,0 +1,60 @@
+-gop cac file chuc nang thnah 1 file duy nhat EX: acc-func->(acc-getdataAll, acc-getdataById, acc-insert, acc-update
+acc-delete) action=? => ra thao tac xu li tuong ung (OK)
+
+-Add your heart (OK)
+
+
+-insert & delete heart (session)(db)... (OK)    
+
+-insert & delete cart (session)(db)... (OK)     
+
+
+-Add profile (OK)
+
+-session (OK)
+
+-Count heart- cart => onchange (OK)
+
+
+-f5 reder shopping-cart, heart-cart(OK)
+
+
+-Toast(msg) cho admin (OK)
+
+-xu ly ajax kem them thong bao sau khi thuc hien SUCCESS or ERROR deu phai thong bao truc quan (OK)
+
+-Phan trang cho table (OK)
+
+-AddeventListener=> view detail () (OK)
+
+-Them binh luan (cần thiết)<=> san pham lien quan (OK)
+
+-view profile - change infomation (OK)
+
+====================
+-Trang trạng thái mua hàng
+
+-Modal Nhap thong tin mua hàng
+
+-Cập nhật TT khách hàng => session
+
+-thanh toan => modal xác nhận và nhập STK
+
+-Zoom img if hover
+
+-Edit lại ... nhúng PHP full trang mua hàng
+
+-Phan trang lọc và search
+
+
+
+
+
+-Modal design moi de se dang nhap lieu (EZ)
+
+
+-Thiet ke DB hoan chinh=> insert data chuan
+
+-Report+chart+Xem nhanh
+
+
