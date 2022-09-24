@@ -45,6 +45,8 @@
     <link rel="stylesheet" href="./style.css">
     
     
+    
+    
 </head>
 
 <body>
@@ -53,6 +55,7 @@
     <!--card shopping-->
 
     <div class="overlay" data-overlay></div>
+    
 
     <!--
     - MODAL
@@ -228,14 +231,23 @@
             cursor: pointer;
         }
         .w-450 {
-	width: 450px;
-}
-.vh-100 {
-	min-height: 100vh;
-}
-.w-350 {
-	width: 350px;
-}
+	        width: 450px;
+        }
+        .vh-100 {
+            min-height: 100vh;
+        }
+        .w-350 {
+            width: 350px;
+        }
+        
+        .modal-content {
+            display: none;
+        }
+        .modal-content.active {
+        display: block;
+        }
+    
+    
     </style>
     <div id="toast"></div>
 
@@ -273,7 +285,8 @@
 
             <div class="container-fluid"  >
                 <div id="msg"></div>
-                <script src="../js/msg.js"></script>             
+                <script src="../js/msg.js"></script>   
+                <script src="../js/jquery-3.3.1.min.js"></script>          
                 <div class="row " >
                     
                     <div class="col-lg-9 col-sm-12">
@@ -382,20 +395,94 @@
 
                         </div>
                        
-                        <button class=" btn-buy " style="width: 100%;justify-content: center;" id="pay">CHECKOUT</button>
+                        <button class=" btn-buy " style="width: 100%;justify-content: center;" id="checkoutBtn">CHECKOUT</button>
                         <?php
                             }
                         ?>       
                     
                     </div>
                     
-                    <script>
+                    
+                    
+                    
+                    
+                </div>
+                <?php
+                if($total){
+                ?>
+                <center>
+                <div class="modal-content " id="checkoutBox">
+                        <div class="modal-header" style="width: 100%;">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">SUMMARY</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" id="cancelCheckout">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="width: 100%;">
+                            <div class="form-group row text-left mb-2">
+
+                                <div class="col-sm-12 text-center">
+                                <h3 class="py-0">
+                                    GRAND TOTAL
+                                </h3>
+                                <h3 class="font-weight-bold py-3 bg-light">
+                                    VND <?php echo $total ?>                    </h3>
+                                </div>
+
+                            </div>
+
+                                <div class="col-sm-12 mb-2">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text">VND</span>
+                                    </div>
+                                    <input class="form-control text-right" id="cardNumber" onkeypress="return isNumberKey(event)" type="text" name="cash" 
+                                    value="254728FS"    placeholder="ENTER CASH" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="width: 100%;">
+                            <button type="submit" class="btn-back" id="pay">PROCEED TO PAYMENT</button>
+                        </div>
+                    </div>
+                </center>
+                <?php
+                    }
+                ?>
+                    
+                
+            </div>
+            <script>
                         $(document).ready(()=>{
                             getDateTime();
                             $(document).on('click','#Update',function(){                              
                                 updateDetails();
                             });
+                            $(document).on('click','#checkout',function(){
+
+                            })
+                            
+                            
                         })
+                        let checkoutBtn = document.querySelector('#checkoutBtn');
+                        let cancelCheckout = document.querySelector('#cancelCheckout');
+                        let checkoutBox=document.querySelector('#checkoutBox');
+                        checkoutBtn.onclick = ()=>{
+                            checkoutBox.classList.add('active')
+                        }
+
+                        cancelCheckout.onclick = ()=>{
+                            checkoutBox.classList.remove('active')
+                        }
+                        let pay = document.querySelector('#pay');
+                        let cardNumber=document.querySelector('#cardNumber').value
+                        //console.log(money)
+                        pay.onclick = ()=>{
+                        
+                            alert(cardNumber+"Thanh toan "+" thanh cong "+" so tien <?php echo $total?>" );
+                            
+                            window.location.href='shopping-cart.php'
+                        }
                         function getDateTime(){
                             var d = new Date();
                             var time = d.getFullYear()+'-'+(1+d.getMonth())+"-"+d.getDay()+"    "+d.getHours()+":"+d.getMinutes();
@@ -509,14 +596,6 @@
                                 }
                         }
                     </script>
-                    
-                    
-                    
-                </div>
-               
-               
-                
-            </div>
                 
         </div>
 
