@@ -477,6 +477,8 @@
     -->
 
         <div class="product-container">
+            <!--Chat box-->
+    
 
             <div class="container">
 
@@ -872,7 +874,7 @@
 
 
                             ?>
-                                <div class="showcase">
+                                <div class="showcase" style="z-index: -10;">
 
                                     <div class="showcase-banner">
                                         
@@ -1229,55 +1231,7 @@
         </div>
 
     </main>
-    <!--Chat box-->
-    <div class="chatbox-wrapper">
-        <div class="chatbox-toggle">
-            <i class='bx bx-message-dots'></i>
-        </div>
-        <div class="chatbox-message-wrapper">
-            <div class="chatbox-message-header">
-                <div class="chatbox-message-profile">
-                    <img src="./img/h5.jpg" alt="" class="chatbox-message-image">
-                    <div>
-                        <h4 class="chatbox-message-name">Virtual Assistant</h4>
-                        <p class="chatbox-message-status">Online</p>
-                    </div>
-                </div>
-                <div class="chatbox-message-dropdown">
-                    <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
-                    <ul class="chatbox-message-dropdown-menu">
-                        <li>
-                            <a href="#">Search</a>
-                        </li>
-                        <li>
-                            <a href="#">Report</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="chatbox-message-content">
-                <h4 class="chatbox-message-no-message">You don't have message yet!</h4>
-                <!-- <div class="chatbox-message-item sent">
-					<span class="chatbox-message-item-text">
-						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
-					</span>
-					<span class="chatbox-message-item-time">08:30</span>
-				</div>
-				<div class="chatbox-message-item received">
-					<span class="chatbox-message-item-text">
-						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
-					</span>
-					<span class="chatbox-message-item-time">08:30</span>
-				</div> -->
-            </div>
-            <div class="chatbox-message-bottom">
-                <form action="#" class="chatbox-message-form">
-                    <textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
-                    <button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
+    
 
 
 
@@ -1557,7 +1511,54 @@
             </div>
 
         </div>
-
+        <div class="chatbox-wrapper">
+        <div class="chatbox-toggle">
+            <i class='bx bx-message-dots'></i>
+        </div>
+        <div class="chatbox-message-wrapper">
+            <div class="chatbox-message-header">
+                <div class="chatbox-message-profile">
+                    <img src="./img/h5.jpg" alt="" class="chatbox-message-image">
+                    <div>
+                        <h4 class="chatbox-message-name">Virtual Assistant</h4>
+                        <p class="chatbox-message-status">Online</p>
+                    </div>
+                </div>
+                <div class="chatbox-message-dropdown">
+                    <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+                    <ul class="chatbox-message-dropdown-menu">
+                        <li>
+                            <a href="#">Search</a>
+                        </li>
+                        <li>
+                            <a href="#">Report</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="chatbox-message-content">
+                <h4 class="chatbox-message-no-message">You don't have message yet!</h4>
+                <!-- <div class="chatbox-message-item sent">
+					<span class="chatbox-message-item-text">
+						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+					</span>
+					<span class="chatbox-message-item-time">08:30</span>
+				</div>
+				<div class="chatbox-message-item received">
+					<span class="chatbox-message-item-text">
+						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+					</span>
+					<span class="chatbox-message-item-time">08:30</span>
+				</div> -->
+            </div>
+            <div class="chatbox-message-bottom">
+                <form action="#" class="chatbox-message-form">
+                    <textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
+                    <button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
         <div class="footer-bottom">
 
             <div class="container">

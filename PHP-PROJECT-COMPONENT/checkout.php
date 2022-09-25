@@ -394,8 +394,11 @@
                             </div>
 
                         </div>
-                       
+                        <button class=" btn-back " style="width: 100%;justify-content: center;" id="Order">PAYMENT ON DELIVERY</button>
+                        <br>
+                        <center><h5 class="justify-conten-center">...or...</h5></center>
                         <button class=" btn-buy " style="width: 100%;justify-content: center;" id="checkoutBtn">CHECKOUT</button>
+                        
                         <?php
                             }
                         ?>       
@@ -452,6 +455,7 @@
                     
                 
             </div>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
             <script>
                         $(document).ready(()=>{
                             getDateTime();
@@ -481,7 +485,28 @@
                         
                             alert(cardNumber+"Thanh toan "+" thanh cong "+" so tien <?php echo $total?>" );
                             
-                            window.location.href='shopping-cart.php'
+                            window.location.href='checkout.php'
+                        }
+                        let order=document.querySelector('#Order');
+                        order.onclick=(e)=>{
+                            //send mail
+                            console.log('Send mail');
+                            e.preventDefault();
+
+                            var email='Khoatran135.246@gmail.com';
+                            var msg="Xin chao";
+
+                            Email.send({
+                                Host : "smtp.gmail.com",
+                                Username : "khoatranvan.1998@gmail.com",
+                                Password : "bdyezyaouqetasue",
+                                To : 'khoatranvan.1998@gmail.com',
+                                From : email,
+                                Subject : "This is the subject",
+                                Body : msg
+                            }).then(
+                            message => alert(message)
+                            );
                         }
                         function getDateTime(){
                             var d = new Date();
@@ -588,7 +613,7 @@
                                     success: function(data, status) {
                                         console.log(data);
                                         showSuccessMsg('Thanh Cong','Đã xóa sản phẩm ra khỏi danh sách mua','info')
-                                        setTimeout(()=>{window.location.href='shopping-cart.php';},1000)
+                                        setTimeout(()=>{window.location.href='checkout.php';},1000)
                                     }
 
                                 })

@@ -36,7 +36,7 @@ acc-delete) action=? => ra thao tac xu li tuong ung (OK)
 
 -Modal Nhap thong tin mua hàng
 
--Cập nhật TT khách hàng => session
+-Cập nhật TT khách hàng => session(OK)
 
 -thanh toan => modal xác nhận và nhập STK
 

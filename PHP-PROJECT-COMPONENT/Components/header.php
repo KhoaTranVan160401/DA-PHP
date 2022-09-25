@@ -357,7 +357,7 @@ transition: .3s;
 </div>
 <script>
     function buy(){
-        window.location.href='shopping-cart.php'
+        window.location.href='checkout.php'
     }
 </script>
 <div class="cart-heart" style= "height: 100px; overflow-y: scroll;">
