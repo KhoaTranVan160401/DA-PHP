@@ -17,6 +17,7 @@
         <div class='modal-dialog'>
     ";
     $email_content='';
+    $total=$_POST['total'];
     $sql='select * from `giohang`';
     $i=0;
     $list=mysqli_query($conn,$sql);
@@ -38,11 +39,12 @@
         ";
     }
     $footer="
+        <hr>
         <div class='modal-body'>
-        <p style='font-weight:boid'>Tong tien : 120000</p><br>
+        <p style='font-weight:boid'>Tong tien :".$total."</p><br>
         <p>Voucher: -15000</p><br>
         <p>Ship: 30000</p><br>
-        <p>Tong cong: 135000 </p><br>
+        <p>Tong cong: ".($total+15000)." </p><br>
         <hr>
         <p>Qui khach co hai long voi dich vu ben SHOP?</p>
 

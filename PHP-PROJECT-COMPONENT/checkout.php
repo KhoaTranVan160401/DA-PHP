@@ -389,7 +389,7 @@
                                 <div class="input-group-prepend">
                                 <span class="input-group-text">USD</span>
                                 </div>
-                                <input type="text" class="form-control text-right " value="<?php echo $total?>" readonly="" name="subtotal">
+                                <input type="text" class="form-control text-right " value="<?php echo $total?>" readonly="" name="subtotal" id="total">
                             </div>
                             </div>
 
@@ -490,23 +490,20 @@
                         let order=document.querySelector('#Order');
                         order.onclick=(e)=>{
                             //send mail
-                            console.log('Send mail');
-                            e.preventDefault();
+                            
+                            var total_price = document.querySelector('#total').value;
+                            console.log(total_price);
+                            $.ajax({
+                                url:"send-mail.php",
+                                type:"POST",
+                                data: {
+                                    total:total_price,
+                                },
+                                success:function(){
 
-                            var email='Khoatran135.246@gmail.com';
-                            var msg="Xin chao";
+                                },
 
-                            Email.send({
-                                Host : "smtp.gmail.com",
-                                Username : "khoatranvan.1998@gmail.com",
-                                Password : "bdyezyaouqetasue",
-                                To : 'khoatranvan.1998@gmail.com',
-                                From : email,
-                                Subject : "This is the subject",
-                                Body : msg
-                            }).then(
-                            message => alert(message)
-                            );
+                            })
                         }
                         function getDateTime(){
                             var d = new Date();
