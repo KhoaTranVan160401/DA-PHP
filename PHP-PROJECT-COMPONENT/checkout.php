@@ -483,9 +483,9 @@
                         //console.log(money)
                         pay.onclick = ()=>{
                         
-                            alert(cardNumber+"Thanh toan "+" thanh cong "+" so tien <?php echo $total?>" );
-                            
-                            window.location.href='checkout.php'
+                            //alert(cardNumber+"Thanh toan "+" thanh cong "+" so tien <?php echo $total?>" );
+                            showSuccessMsg('Thanh Cong','Thanh toan thanh cong '+<?php echo $total?>+' VND' ,'success')
+                            setTimeout(()=>{window.location.href='checkout.php'},1000)
                         }
                         let order=document.querySelector('#Order');
                         order.onclick=(e)=>{
@@ -500,7 +500,7 @@
                                     total:total_price,
                                 },
                                 success:function(){
-
+                                    showSuccessMsg('Thanh Cong','Dat hang thanh cong<br>Thong tin don hang duoc gui toi mail','info')
                                 },
 
                             })

@@ -40,6 +40,11 @@
           $sub_array[] = '<img src="./img/'.$row['hinhAnh'].'" style="width: 50px;height: 50px;">';
           $sub_array[] = $row['moTa'];
           $sub_array[] = $row['gia'];
+          if($row['hienThi']==0)
+            $sub_array[] ='<input type="checkbox" onchange="changeState(`'.$row['maSP'].'`,1)">';
+          else  
+            $sub_array[] ='<input type="checkbox" style="color:#20c997" checked="checked" onchange="changeState(`'.$row['maSP'].'`,0)">';
+          
           $sub_array[] = '<a onclick="getDetails_view(`'.$row['maSP'].'`)" class="btn btn-info">Xem</a>';
           $sub_array[] = '<a onclick="getDetails(`'.$row['maSP'].'`)" class="btn btn-warning">Sua</a>';
           $sub_array[] = '<a  class="btn btn-danger delete" id="'.$row['maSP'].'">Xoa</a>';

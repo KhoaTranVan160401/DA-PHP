@@ -39,6 +39,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet" href="./table.css">
+    <!--FontAsome 5.15.2-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 
 <body>
@@ -141,6 +143,10 @@
                                                     <label for="ngayNhap_insert" class="visually-hidden">ngay Nhap</label>
                                                     <input type="date"  class="form-control" id="ngayNhap_insert" name="ngayNhap_insert" placeholder="ngay Nhap" >
                                                 </div>
+                                                <div class="col-auto">
+                                                    <label for="hienThi_insert" class="visually-hidden">Ẩn / hiện</label>
+                                                    <input type="number"  class="form-control" id="hienThi_insert" name="hienThi_insert" placeholder="Ẩn hiện" >
+                                                </div>
 
 
                                                 <div class="modal-footer">
@@ -167,62 +173,66 @@
                                     <div class="modal-body">
                                         
                                     <form class="row g-3" method="" action="" enctype="multipart/form-data" >
-                                    <div class="col-auto">
-                                                    <label for="maSP_update" class="visually-hidden">Ma SP</label>
-                                                    <input type="text"  class="form-control" id="maSP_update" name="maSP_update" placeholder="Ma SP" readonly="readonly">
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="maSP_update" class="visually-hidden">Ma SP</label>
+                                            <input type="text"  class="form-control" id="maSP_update" name="maSP_update" placeholder="Ma SP" readonly="readonly">
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="tenSP_update" class="visually-hidden">Ten SP</label>
-                                                    <input type="text"  class="form-control" id="tenSP_update" name="tenSP_update" placeholder="Ten SP" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="tenSP_update" class="visually-hidden">Ten SP</label>
+                                            <input type="text"  class="form-control" id="tenSP_update" name="tenSP_update" placeholder="Ten SP" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="hinhAnh_update" class="visually-hidden">Hinh Anh</label>
-                                                    <input type="file"  class="form-control" id="hinhAnh_update" name="hinhAnh_update" placeholder="Hinh Anh" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="hinhAnh_update" class="visually-hidden">Hinh Anh</label>
+                                            <input type="file"  class="form-control" id="hinhAnh_update" name="hinhAnh_update" placeholder="Hinh Anh" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="mota_update" class="visually-hidden">Mo Ta</label>
-                                                    <input type="text"  class="form-control" id="mota_update" name="mota_update" placeholder="Mo Ta" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="mota_update" class="visually-hidden">Mo Ta</label>
+                                            <input type="text"  class="form-control" id="mota_update" name="mota_update" placeholder="Mo Ta" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="chatLuong_update" class="visually-hidden">Chat Luonng</label>
-                                                    <input type="number"  class="form-control" id="chatLuong_update" name="chatLuong_update" placeholder="Chat Luong" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="chatLuong_update" class="visually-hidden">Chat Luonng</label>
+                                            <input type="number"  class="form-control" id="chatLuong_update" name="chatLuong_update" placeholder="Chat Luong" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="trangThai_update" class="visually-hidden">Trang Thai</label>
-                                                    <input type="text"  class="form-control" id="trangThai_update" name="trangThai_update" placeholder="Trang Thai" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="trangThai_update" class="visually-hidden">Trang Thai</label>
+                                            <input type="text"  class="form-control" id="trangThai_update" name="trangThai_update" placeholder="Trang Thai" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="gia_update" class="visually-hidden">Gia</label>
-                                                    <input type="number"  class="form-control" id="gia_update" name="gia_update" placeholder="Gia" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="gia_update" class="visually-hidden">Gia</label>
+                                            <input type="number"  class="form-control" id="gia_update" name="gia_update" placeholder="Gia" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="nhomSP_update" class="visually-hidden">Nhom SP</label>
-                                                    <input type="text"  class="form-control" id="nhomSP_update" name="nhomSP_update" placeholder="Nhom SP" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="nhomSP_update" class="visually-hidden">Nhom SP</label>
+                                            <input type="text"  class="form-control" id="nhomSP_update" name="nhomSP_update" placeholder="Nhom SP" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="NCC_update" class="visually-hidden">NCC</label>
-                                                    <input type="text"  class="form-control" id="NCC_update" name="NCC_update" placeholder="NCC" >
-                                                </div>
+                                        <div class="col-auto">
+                                            <label for="NCC_update" class="visually-hidden">NCC</label>
+                                            <input type="text"  class="form-control" id="NCC_update" name="NCC_update" placeholder="NCC" >
+                                        </div>
 
-                                                <div class="col-auto">
-                                                    <label for="ngayNhap_update" class="visually-hidden">ngay Nhap</label>
-                                                    <input type="date"  class="form-control" id="ngayNhap_update" name="ngayNhap_update" placeholder="ngay Nhap" >
-                                                </div>
-                                                
+                                        <div class="col-auto">
+                                            <label for="ngayNhap_update" class="visually-hidden">ngay Nhap</label>
+                                            <input type="date"  class="form-control" id="ngayNhap_update" name="ngayNhap_update" placeholder="ngay Nhap" >
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="hienThi_update" class="visually-hidden">Ẩn / hiện</label>
+                                            <input type="number"  class="form-control" id="hienThi_update" name="hienThi_update" placeholder="Ẩn hiện" >
+                                        </div>
+                                        
 
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" id="Update">Save Changes</button>
-                                                </div>
-                                            </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="Update">Save Changes</button>
+                                        </div>
+                                    </form>
                                             
                                             
                                             
@@ -294,6 +304,11 @@
                                                     <label for="ngayNhap_view"  class="visually-hidden">ngay Nhap</label>
                                                     <input readonly="readonly" type="date"  class="form-control" id="ngayNhap_view"  name="ngayNhap_view"  placeholder="ngay Nhap" >
                                                 </div>
+                                                <div class="col-auto">
+                                                    <label for="hienThi_view" class="visually-hidden">Ẩn / hiện</label>
+                                                    <input type="number"  class="form-control" id="hienThi_view" name="hienThi_view" placeholder="Ẩn hiện" >
+                                                </div>
+                                                
                                                 
 
                                                 <div class="modal-footer">
@@ -322,6 +337,7 @@
                                             <th scope="col">Mo Ta</th>
                                             
                                             <th scope="col">Gia</th>
+                                            <th scope="col">Hien thi</th>
                                             <th scope="col">Chi Tiet</th>
                                             <th scope="col">Sua</th>
                                             <th scope="col">Xoa</th>
@@ -386,7 +402,10 @@
                     "data": "6"
                 },{
                     "data": "7"
-                },]
+                },
+                {
+                    "data": "8"
+                }]
             });
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebar').toggleClass('active');
@@ -517,6 +536,7 @@
                                     $('#nhomSP_update').val(productid.nhomSP);
                                     $('#NCC_update').val(productid.ncc);
                                     $('#ngayNhap_update').val(productid.ngayNhap);
+                                    $('#hienThi_update').val(productid.hienThi);
                                     
                                     //$('#avatar_update').val(userid.avatar);
 
@@ -542,6 +562,7 @@
                                     $('#nhomSP_view').val(productid.nhomSP);
                                     $('#NCC_view').val(productid.ncc);
                                     $('#ngayNhap_view').val(productid.ngayNhap);
+                                    $('#hienThi_view').val(productid.hienThi);
                                     
                                     //$('#avatar_update').val(userid.avatar);
 
@@ -566,6 +587,7 @@
                                     var nhomSP=$('#nhomSP_update').val();
                                     var nCC=$('#NCC_update').val();
                                     var ngayNhap=$('#ngayNhap_update').val();
+                                    var hienThi=$('#hienThi_update').val();
                                     
                                     //console.log(hinhAnh);
                                     $.post("pro-func.php?action=update",{
@@ -578,7 +600,8 @@
                                         gia:gia,
                                         nhomSP:nhomSP,
                                         nCC:nCC,
-                                        ngayNhap:ngayNhap
+                                        ngayNhap:ngayNhap,
+                                        hienThi:hienThi
                         
                                         
                                     },function(data,status){
@@ -595,6 +618,7 @@
                                         $('#nhomSP_update').val('');
                                         $('#NCC_update').val('');
                                         $('#ngayNhap_update').val('');
+                                        $('#hienThi_update').val('');
 
                                         $('#Edit').modal('hide');
                                         displayData();
@@ -615,6 +639,7 @@
                                     var nhomSP=$('#nhomSP_update').val();
                                     var nCC=$('#NCC_update').val();
                                     var ngayNhap=$('#ngayNhap_update').val();
+                                    var hienThi=$('#hienThi_update').val();
                                     
                                     console.log(hinhAnh);
                                     $.post("pro-func.php?action=update",{
@@ -627,8 +652,8 @@
                                         gia:gia,
                                         nhomSP:nhomSP,
                                         nCC:nCC,
-                                        ngayNhap:ngayNhap
-                        
+                                        ngayNhap:ngayNhap,
+                                        hienThi:hienThi
                                         
                                     },function(data,status){
                                         
@@ -643,6 +668,7 @@
                                         $('#nhomSP_update').val('');
                                         $('#NCC_update').val('');
                                         $('#ngayNhap_update').val('');
+                                        $('#hienThi_update').val('');
 
                                         $('#Edit').modal('hide');
                                         displayData();
@@ -651,6 +677,24 @@
 
                                     });
                                 }
+
+                            }
+                            function changeState(id,state){
+                                $.post("pro-func.php?action=updateState",{
+                                        maSP:id,
+                                        hienThi:state
+                        
+                                        
+                                    },function(data,status){
+                                        setInterval(()=>{
+                                            dataTable.ajax.reload();
+                                        },1000)
+                                        
+                                        displayData();
+                                        showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
+                                        
+
+                                    });
 
                             }
                             function deleteproduct(id,dataTable){

@@ -869,6 +869,7 @@
                                 $ds=mysqli_query($conn,$sql);
                                 if(mysqli_num_rows($ds)){
                                     while($dong = mysqli_fetch_assoc($ds)){
+                                        if($dong['hienThi']==1){
 
 
                             ?>
@@ -940,7 +941,7 @@
                                 </div>
 
                             <?php
-
+                                        }
                                     }
                                 }
                             ?>

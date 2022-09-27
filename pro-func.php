@@ -55,7 +55,7 @@ include "./config.php";
                 $response['message']='Invalid  or data not found';
             }
 
-        }if($_GET['action']=='insert'){
+        }else if($_GET['action']=='insert'){
             extract($_POST);
             if(isset($_POST['maSP'])){
                 $maSP = $_POST['maSP'];
@@ -68,8 +68,10 @@ include "./config.php";
                 $nhomSP = $_POST['nhomSP'];
                 $NCC = $_POST['nCC'];
                 $ngayNhap = $_POST['ngayNhap'];
+                $hienThi = $_POST['hienThi'];
 
-                $sql="insert into `sanpham` values('$maSP','$tenSP','$hinhAnh','$mota','$chatLuong','$trangThai','$gia','$nhomSP','$NCC','$ngayNhap')";
+
+                $sql="insert into `sanpham` values('$maSP','$tenSP','$hinhAnh','$mota','$chatLuong','$trangThai','$gia','$nhomSP','$NCC','$ngayNhap','$hienThi')";
 
                 //$sql="insert into `sanpham` values('$maSP','$tenSP','$hinhAnh','$mota','$chatLuong','trangThai','gia','$nhomSP','$NCC','$ngayNhap')";
                 //$sql="INSERT INTO `sanpham` (`maSP`, `tenSP`, `hinhAnh`, `moTa`, `chatLuong`, `trangThai`, `gia`, `nhomSP`, `NCC`, `ngayNhap`) VALUES ('$maSP', '', '', '', 0, '', 0, '', '', '')";
@@ -82,7 +84,7 @@ include "./config.php";
                 
             }
 
-        }if($_GET['action']=='update'){
+        }else if($_GET['action']=='update'){
             if(isset($_POST['maSP']  )){
                 $maSP = $_POST['maSP'];
                 $tenSP = $_POST['tenSP'];
@@ -94,12 +96,12 @@ include "./config.php";
                 $nhomSP = $_POST['nhomSP'];
                 $NCC = $_POST['nCC'];
                 $ngayNhap = $_POST['ngayNhap'];
-        
+                $hienThi = $_POST['hienThi'];
                 if($hinhAnh==''){
-                    $sql="update `sanpham` set `tenSP`='$tenSP',`moTa`='$mota',`chatLuong`='$chatLuong',`trangThai`='$trangThai',`gia`='$gia',`nhomSP`='$nhomSP',`NCC`='$NCC',`ngayNhap`='$ngayNhap' where `maSP`='$maSP'";
+                    $sql="update `sanpham` set `tenSP`='$tenSP',`moTa`='$mota',`chatLuong`='$chatLuong',`trangThai`='$trangThai',`gia`='$gia',`nhomSP`='$nhomSP',`NCC`='$NCC',`ngayNhap`='$ngayNhap',`hienThi`='$hienThi' where `maSP`='$maSP'";
         
                 }else{
-                    $sql="update `sanpham` set `tenSP`='$tenSP',`hinhAnh`='$hinhAnh',`moTa`='$mota',`chatLuong`='$chatLuong',`trangThai`='$trangThai',`gia`='$gia',`nhomSP`='$nhomSP',`NCC`='$NCC',`ngayNhap`='$ngayNhap' where `maSP`='$maSP'";
+                    $sql="update `sanpham` set `tenSP`='$tenSP',`hinhAnh`='$hinhAnh',`moTa`='$mota',`chatLuong`='$chatLuong',`trangThai`='$trangThai',`gia`='$gia',`nhomSP`='$nhomSP',`NCC`='$NCC',`ngayNhap`='$ngayNhap',`hienThi`='$hienThi' where `maSP`='$maSP'";
         
                 }
         
@@ -109,7 +111,17 @@ include "./config.php";
                 
             }
 
-        }if($_GET['action']=='delete'){
+        }else if($_GET['action']=='updateState'){
+            if(isset($_POST['maSP']  )){
+                $maSP = $_POST['maSP'];
+                $hienThi = $_POST['hienThi'];
+
+                $sql="update `sanpham` set `hienThi`='$hienThi' where `maSP`='$maSP'";
+
+                $result=mysqli_query($conn,$sql);
+                
+            }
+        }else if($_GET['action']=='delete'){
             if(isset($_POST['deleteid']  )){
                 $accountid=$_POST['deleteid'];
         
