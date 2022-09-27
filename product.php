@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="./table.css">
     <!--FontAsome 5.15.2-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    
 </head>
 
 <body>
@@ -143,10 +144,7 @@
                                                     <label for="ngayNhap_insert" class="visually-hidden">ngay Nhap</label>
                                                     <input type="date"  class="form-control" id="ngayNhap_insert" name="ngayNhap_insert" placeholder="ngay Nhap" >
                                                 </div>
-                                                <div class="col-auto">
-                                                    <label for="hienThi_insert" class="visually-hidden">Ẩn / hiện</label>
-                                                    <input type="number"  class="form-control" id="hienThi_insert" name="hienThi_insert" placeholder="Ẩn hiện" >
-                                                </div>
+                                                
 
 
                                                 <div class="modal-footer">
@@ -174,57 +172,61 @@
                                         
                                     <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                                         <div class="col-auto">
-                                            <label for="maSP_update" class="visually-hidden">Ma SP</label>
+                                            <label for="maSP_update" >Ma SP</label> <!--class="visually-hidden"-->
                                             <input type="text"  class="form-control" id="maSP_update" name="maSP_update" placeholder="Ma SP" readonly="readonly">
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="tenSP_update" class="visually-hidden">Ten SP</label>
+                                            <label for="tenSP_update" >Ten SP</label>
                                             <input type="text"  class="form-control" id="tenSP_update" name="tenSP_update" placeholder="Ten SP" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="hinhAnh_update" class="visually-hidden">Hinh Anh</label>
+                                            <label for="hinhAnh_update" >Hinh Anh</label>
                                             <input type="file"  class="form-control" id="hinhAnh_update" name="hinhAnh_update" placeholder="Hinh Anh" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="mota_update" class="visually-hidden">Mo Ta</label>
+                                            <label for="mota_update" >Mo Ta</label>
                                             <input type="text"  class="form-control" id="mota_update" name="mota_update" placeholder="Mo Ta" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="chatLuong_update" class="visually-hidden">Chat Luonng</label>
+                                            <label for="chatLuong_update" >Chat Luonng</label>
                                             <input type="number"  class="form-control" id="chatLuong_update" name="chatLuong_update" placeholder="Chat Luong" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="trangThai_update" class="visually-hidden">Trang Thai</label>
+                                            <label for="trangThai_update" >Trang Thai</label>
                                             <input type="text"  class="form-control" id="trangThai_update" name="trangThai_update" placeholder="Trang Thai" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="gia_update" class="visually-hidden">Gia</label>
+                                            <label for="gia_update" >Gia</label>
                                             <input type="number"  class="form-control" id="gia_update" name="gia_update" placeholder="Gia" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="nhomSP_update" class="visually-hidden">Nhom SP</label>
+                                            <label for="nhomSP_update" >Nhom SP</label>
                                             <input type="text"  class="form-control" id="nhomSP_update" name="nhomSP_update" placeholder="Nhom SP" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="NCC_update" class="visually-hidden">NCC</label>
+                                            <label for="NCC_update" >NCC</label>
                                             <input type="text"  class="form-control" id="NCC_update" name="NCC_update" placeholder="NCC" >
                                         </div>
 
                                         <div class="col-auto">
-                                            <label for="ngayNhap_update" class="visually-hidden">ngay Nhap</label>
+                                            <label for="ngayNhap_update" >ngay Nhap</label>
                                             <input type="date"  class="form-control" id="ngayNhap_update" name="ngayNhap_update" placeholder="ngay Nhap" >
                                         </div>
                                         <div class="col-auto">
-                                            <label for="hienThi_update" class="visually-hidden">Ẩn / hiện</label>
-                                            <input type="number"  class="form-control" id="hienThi_update" name="hienThi_update" placeholder="Ẩn hiện" >
+                                            <label for="hienThi_update" >Ẩn / hiện</label>
+                                            <!-- <input type="number"  class="form-control" id="hienThi_update" name="hienThi_update" placeholder="Ẩn hiện" > -->
+                                            <select class="form-control" id="hienThi_update" name="hienThi_update" placeholder="Ẩn hiện">
+                                                <option value="1">Hiển thị</option>
+                                                <option value="0">Ẩn</option>
+                                            </select>
                                         </div>
                                         
 
@@ -415,7 +417,7 @@
             $('.more-button,.body-overlay').on('click', function() {
                 $('#sidebar,.body-overlay').toggleClass('show-nav');
             });
-            displayData();
+            //displayData();
             // $("#live_search").keyup(function(){
             //     var input = $(this).val();
 
@@ -621,7 +623,7 @@
                                         $('#hienThi_update').val('');
 
                                         $('#Edit').modal('hide');
-                                        displayData();
+                                        //displayData();
                                         showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
                                         
 
@@ -671,7 +673,7 @@
                                         $('#hienThi_update').val('');
 
                                         $('#Edit').modal('hide');
-                                        displayData();
+                                        ////displayData();
                                         showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
                                         
 
@@ -686,11 +688,9 @@
                         
                                         
                                     },function(data,status){
-                                        setInterval(()=>{
-                                            dataTable.ajax.reload();
-                                        },1000)
+                                        setInterval(()=>{},1000)
                                         
-                                        displayData();
+                                        ////displayData();
                                         showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
                                         
 
@@ -711,7 +711,7 @@
                                             //Toast success
                                             dataTable.ajax.reload();
                                             showSuccessMsg('Thanh Cong','Xoa DL thanh cong','success')
-                                            displayData();
+                                            //displayData();
                                         },
                                         error:function(){
                                             //Toast error
@@ -770,7 +770,8 @@
                                             gia:gia,
                                             nhomSP:nhomSP,
                                             nCC:nCC,
-                                            ngayNhap:ngayNhap
+                                            ngayNhap:ngayNhap,
+                                            hienThi:0
                                         },
                                         success:function(data,status){
                                             dataTable.ajax.reload();
@@ -787,7 +788,7 @@
                                             $('#ngayNhap_insert').val('');
                                             
                                             $('#New').modal('hide');
-                                            displayData();
+                                            //displayData();
                                             showSuccessMsg('Thanh Cong','Them DL thanh cong','success')
                                         }
 

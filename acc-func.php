@@ -71,6 +71,16 @@
                 
             }
 
+        }else if($_GET['action']=='updateState'){
+            if(isset($_POST['username']  )){
+                $username = $_POST['username'];
+                $active = $_POST['active'];
+
+                $sql="update `taikhoan` set `active`='$active' where `username`='$username'";
+
+                $result=mysqli_query($conn,$sql);
+                
+            }
         }else if($_GET['action']=='delete'){
             if(isset($_POST['deleteid']  )){
                 $accountid=$_POST['deleteid'];
@@ -111,6 +121,7 @@
         
             }
         }
+        echo $sql;
     
     }
 

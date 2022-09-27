@@ -190,6 +190,7 @@
                                             <th scope="col">Username</th>
                                             <th scope="col">Password</th>
                                             <th scope="col">Avatar</th>
+                                            <th scope="col">Active</th>
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
                                         </tr>
@@ -423,6 +424,8 @@
                     "data": "3"
                 },  {
                     "data": "4"
+                },  {
+                    "data": "5"
                 }]
             });
             
@@ -463,6 +466,7 @@
                 // 
 
             });
+            
             $(document).on('click','#Update',function(){
                 
                 
@@ -546,7 +550,7 @@
                                     $('#username_update').val(userid.username);
                                     $('#password_update').val(userid.password);
                                     //$('#avatar_update').val(userid.avatar);
-
+                                    
                                 });
                                
                                 $('#Edit').modal('show');
@@ -561,6 +565,7 @@
                                     var username_update=$('#username_update').val();
                                     var password_update=$('#password_update').val();
                                     var avatar_update=filename;
+
                                     console.log(1);
                                     $.post("acc-func.php?action=update",{
                                         username_update:username_update,
@@ -610,6 +615,24 @@
                                     
 
                                 }
+
+                            }
+                            
+                            function changeState(username,state){
+                                $.post("acc-func.php?action=updateState",{
+                                        username:username,
+                                        active:state
+                        
+                                        
+                                    },function(data,status){
+                                        console.log(data)
+                                        setInterval(()=>{},1000)
+                                        
+                                        ////displayData();
+                                        showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
+                                        
+
+                                });
 
                             }
                             function deleteuser(id, dataTable){
