@@ -46,7 +46,7 @@
             extract($_POST);
             if(isset($_POST['username_send']  )&&isset($_POST['password_send']  )&&isset($_POST['avatar_send']  )){
                 $filename = $_POST['filename'];
-
+                //INSERT INTO `taikhoan` (`username`, `password`, `avatar`) VALUES ('0000', 'kkkkk', 'k.jpg');
                 $sql="insert into `taikhoan` values('$username_send','$password_send','$avatar_send',0)";
                 $result=mysqli_query($conn,$sql);
 
