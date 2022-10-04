@@ -49,7 +49,7 @@
             </div>
             <div class="card-content">
                 <p class="category"><strong>Revenue</strong></p>
-                <h3 class="card-title">$23,100</h3>
+                <h3 class="card-title">$23,10</h3>
             </div>
             <div class="card-footer">
                 <div class="stats">

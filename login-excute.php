@@ -1,31 +1,36 @@
 <?php
     session_start();
-    include 'config.php';
+    include 'config2.php';
     
     
     if(isset($_POST['username'])&&isset($_POST['password'])){
         $username=$_POST['username'];
         $password=$_POST['password'];
+        
         //Add session
-        $sql='select * from `taikhoan`';
+        $sql='select * from `users`';
         $list=mysqli_query($conn,$sql);
         $res='Error';
+        $type_id=0;
         while($row=mysqli_fetch_assoc($list)){
-            if($row['username']==$username&&$row['password']==$password){
+            if($row['USERNAME']==$username&&$row['PASSWORD']==$password){
+                $type_id=$row['TYPE_ID'];
                 $session_array=array(
-                    'username'=>$row['username'],
-                    'avatar'=>$row['avatar'],
-                    'password'=>$row['password']
+                    'ID'=>$row['ID'],
+                    'USERNAME'=>$row['USERNAME'],
+                    'IMG'=>$row['IMG'],
+                    'PASSWORD'=>$row['PASSWORD'],
+                    'CUST_ID'=>$row['CUSTOMER_ID'],
                 );
                 $_SESSION['user'][]=$session_array;
-
                 
-                if($username=='admin'){
-                    $res='AD';
+                
+                if($type_id==1){
+                    $res=1;
                     echo $res;
                     
                 }else{
-                    $res='User';
+                    $res=2;
                     echo $res;
                     //session arr => list shopping cart or shopping heart
                     //session profile

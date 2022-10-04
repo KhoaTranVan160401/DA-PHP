@@ -1,6 +1,6 @@
 <nav id="sidebar">
     <div class="sidebar-header">
-        <h3><img src="./img/logo-K-5.jpg" class="img-fluid" /><span>Technology Shop</span></h3>
+        <h3><img src="UserPage/img/logo-K-5.jpg" class="img-fluid" /><span>K Shop</span></h3>
     </div>
     <ul class="list-unstyled components">
         <li class="active">
@@ -43,7 +43,7 @@
 
         <li class="dropdown">
             <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="material-icons">category</i><span>category</span></a>
+                <i class="material-icons">category</i><span>Product</span></a>
             <ul class="collapse list-unstyled menu" id="homeSubmenu1">
                 <li>
                     <a href="product.php">Link 1</a>
@@ -55,36 +55,7 @@
             </ul>
         </li>
 
-        <li class="dropdown">
-            <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="material-icons">people</i><span>Employee</span></a>
-            <ul class="collapse list-unstyled menu" id="pageSubmenu2">
-                <li>
-                    <a href="employer.php">Link 1</a>
-                </li>
-                <li>
-                    <a href="#">Link 2</a>
-                </li>
-                
-            </ul>
-        </li>
-
-        <li class="dropdown">
-            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="material-icons">account_balance</i>
-
-
-                <span>Supplier</span></a>
-            <ul class="collapse list-unstyled menu" id="pageSubmenu3">
-                <li>
-                    <a href="./supplier.php">Link 1</a>
-                </li>
-                <li>
-                    <a href="#">Link 2</a>
-                </li>
-                
-            </ul>
-        </li>
+        
         <li class="dropdown">
             <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="material-icons">inventory</i><span>inventory</span></a>
@@ -128,12 +99,10 @@
                 
             </ul>
         </li>
-
-
         <li class="dropdown">
-            <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <a href="#pageSubmenu8" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="material-icons">account_circle</i><span>Accounts</span></a>
-            <ul class="collapse list-unstyled menu" id="pageSubmenu7">
+            <ul class="collapse list-unstyled menu" id="pageSubmenu8">
                 <li>
                     <a href="account.php">Link 1</a>
                 </li>
@@ -143,13 +112,101 @@
                 
             </ul>
         </li>
+        <li class="dropdown">
+            <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="material-icons">grid_on</i><span>...</span></a>
+            <ul class="collapse list-unstyled menu" id="pageSubmenu7">
+                <li>
+                    <a href="category.php">Category</a>
+                </li>
+                <li>
+                    <a href="supplier.php">Supplier</a>
+                </li>
+                <li>
+                    <a href="location.php">Location</a>
+                </li>
+                <li>
+                    <a href="type.php">Type</a>
+                </li>
+                <li>
+                    <a href="banner.php">Banner</a>
+                </li>
+                <li>
+                    <a href="blog.php">Blog</a>
+                </li>
+                
+            </ul>
+        </li>
+
 
         
 
+        <!-- <li class="dropdown">
+            <a href="#pageSubmenu9" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="material-icons">account_circle</i><span>Categorys</span></a>
+            <ul class="collapse list-unstyled menu" id="pageSubmenu9">
+                <li>
+                    <a href="category.php">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                
+            </ul>
+        </li>
         
-        
-
-
+        <li class="dropdown">
+            <a href="#pageSubmenu10" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="material-icons">account_circle</i><span>Locations</span></a>
+            <ul class="collapse list-unstyled menu" id="pageSubmenu10">
+                <li>
+                    <a href="location.php">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#pageSubmenu11" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="material-icons">account_circle</i><span>Types</span></a>
+            <ul class="collapse list-unstyled menu" id="pageSubmenu11">
+                <li>
+                    <a href="type.php">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#pageSubmenu12" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="material-icons">account_circle</i><span>Banner</span></a>
+            <ul class="collapse list-unstyled menu" id="pageSubmenu12">
+                <li>
+                    <a href="banner.php">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#pageSubmenu13" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="material-icons">account_circle</i><span>Blog</span></a>
+            <ul class="collapse list-unstyled menu" id="pageSubmenu13">
+                <li>
+                    <a href="blog.php">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                
+            </ul>
+        </li> -->
     </ul>
 
 

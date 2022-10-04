@@ -80,7 +80,7 @@
                             </div>
                             <!-- Button trigger modal -->
 
-                            <?php include './Modals/acc-modal.php'?>
+                            <?php include './forms/acc-modal.php'?>
                             
                             <div class="card-content table-responsive">
                                 <button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#New">ADD</button>
@@ -94,7 +94,7 @@
                                             <th scope="col">Password</th>
                                             <th scope="col">Avatar</th>
                                             <th scope="col">Active</th>
-                                            <th scope="col">Edit</th>
+                                            <th scope="col">Update</th>
                                             <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
@@ -277,8 +277,14 @@
                                 $.post("acc-func.php?action=getdataById",{updateid:id},function(data,status){
                                     var userid =JSON.parse(data);
                                     console.log(userid);
-                                    $('#username_update').val(userid.username);
-                                    $('#password_update').val(userid.password);
+
+                                    $('#id_update').val(userid.ID);
+                                    $('#username_update').val(userid.USERNAME);
+                                    $('#password_update').val(userid.PASSWORD);
+                                    $('#img_update').val(userid.IMG);
+                                    $('#type_id_update').val(userid.TYPE_ID);
+                                    $('#customer_id_update').val(userid.CUSTOMER_ID);
+                                    $('#state_update').val(userid.STATE);
                                     //$('#avatar_update').val(userid.avatar);
                                     
                                 });
@@ -292,24 +298,36 @@
                                     var file_data = $('#avatar_update').prop('files')[0];    //Fetch the file
                                     filename=file_data['name'];
 
-                                    var username_update=$('#username_update').val();
-                                    var password_update=$('#password_update').val();
-                                    var avatar_update=filename;
+                                    var id=$('#id_update').val();
+                                    var username=$('#username_update').val();
+                                    var password=$('#password_update').val();
+                                    var avatar=filename;
+                                    var type_id=$('#type_id_update').val();
+                                    var customer_id=$('#customer_id_update').val();
+                                    var state=$('#state_update').val();
 
                                     console.log(1);
                                     $.post("acc-func.php?action=update",{
-                                        username_update:username_update,
-                                        password_update:password_update,
-                                        avatar_update:avatar_update
+                                        id:id,
+                                        username:username,
+                                        password:password,
+                                        avatar:avatar,
+                                        type_id:type_id,
+                                        customer_id:customer_id,
+                                        state:state,
+
                                     },function(data,status){
                                         
                                         dataTable.ajax.reload();
                                         
                                         uploadfile_for_update();
-
+                                        $('#id_update').val('');
                                         $('#username_update').val('');
                                         $('#password_update').val('');
                                         $('#avatar_update').val('');
+                                        $('#type_id_update').val('');
+                                        $('#customer_id_update').val('');
+                                        $('#state_update').val('');
                                         
                                         
                                         $('#Edit').modal('hide');
@@ -322,36 +340,57 @@
 
                                 }catch{
 
-                                    var username_update=$('#username_update').val();
-                                    var password_update=$('#password_update').val();
-                                    var avatar_update='';
-                                    console.log(1);
-                                    $.post("acc-func.php?action=update",{
-                                        username_update:username_update,
-                                        password_update:password_update,
-                                        avatar_update:avatar_update
-                                    },function(data,status){
-                                        
-                                        dataTable.ajax.reload();
-                                        $('#username_update').val('');
-                                        $('#password_update').val('');
-                                        
-                                        $('#Edit').modal('hide');
-                                        //displayData();
-                                        showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
-                                        
-
-                                    });
                                     
 
+                                    var id=$('#id_update').val();
+                                    var username=$('#username_update').val();
+                                    var password=$('#password_update').val();
+                                    var avatar='';
+                                    var type_id=$('#type_id_update').val();
+                                    var customer_id=$('#customer_id_update').val();
+                                    var state=$('#state_update').val();
+
+                                    console.log(1);
+                                    $.post("acc-func.php?action=update",{
+                                        id:id,
+                                        username:username,
+                                        password:password,
+                                        avatar:avatar,
+                                        type_id:type_id,
+                                        customer_id:customer_id,
+                                        state:state,
+
+                                    },
+                                    function(data,status){
+                                        
+                                        dataTable.ajax.reload();
+                                        
+                                        //uploadfile_for_update();
+
+                                        $('#id_update').val('');
+                                        $('#username_update').val('');
+                                        $('#password_update').val('');
+                                        $('#avatar_update').val('');
+                                        $('#type_id_update').val('');
+                                        $('#customer_id_update').val('');
+                                        $('#state_update').val('');
+                                        
+                                        
+                                        $('#Edit').modal('hide');
+                                        
+                                        //displayData();
+                                        showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
+                                    });
+
                                 }
+                            
 
                             }
                             
-                            function changeState(username,state){
+                            function changeState(id,state){
                                 $.post("acc-func.php?action=updateState",{
-                                        username:username,
-                                        active:state
+                                        id:id,
+                                        state:state
                         
                                         
                                     },function(data,status){
@@ -419,15 +458,21 @@
                                     var username=$('#username_insert').val();
                                     var password=$('#password_insert').val();
                                     var avatar=filename;
+                                    var type_id=$('#type_id_insert').val();
+                                    var customer_id=$('#customer_id_insert').val();
+                                    
+
                                     console.log(username,password,avatar);
                                     
                                     $.ajax({
                                         url:"acc-func.php?action=insert",
                                         type:"post",
                                         data:{
-                                            username_send:username,
-                                            password_send:password,
-                                            avatar_send:filename
+                                            username:username,
+                                            password:password,
+                                            avatar:avatar,
+                                            type_id:type_id,
+                                            customer_id:customer_id,
                                         },
                                         success:function(data,status){
                                             dataTable.ajax.reload();
@@ -436,6 +481,8 @@
                                             $('#username_insert').val('');
                                             $('#password_insert').val('');
                                             $('#avatar_insert').val('');
+                                            $('#type_id_insert').val('');
+                                            $('#customer_id_insert').val('');
                                             $('#New').modal('hide');
                                             //displayData();
                                             showSuccessMsg('Thanh Cong','Them DL thanh cong','success')

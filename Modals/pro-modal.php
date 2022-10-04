@@ -1,3 +1,4 @@
+<?php include './loadFK.php' ?>
 <!--Modal add--> 
 <div class="modal fade" id="New" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog">
@@ -10,52 +11,61 @@
             
         <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                     <div class="col-auto">
-                        <label for="maSP_insert" class="visually-hidden">Ma SP</label>
+                        <label for="maSP_insert" >Ma SP</label>
                         <input type="text"  class="form-control" id="maSP_insert" name="maSP_insert" placeholder="Ma SP" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="tenSP_insert" class="visually-hidden">Ten SP</label>
+                        <label for="tenSP_insert" >Ten SP</label>
                         <input type="text"  class="form-control" id="tenSP_insert" name="tenSP_insert" placeholder="Ten SP" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="hinhAnh_insert" class="visually-hidden">Hinh Anh</label>
+                        <label for="hinhAnh_insert" >Hinh Anh</label>
                         <input type="file"  class="form-control" id="hinhAnh_insert" name="hinhAnh_insert" placeholder="Hinh Anh" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="mota_insert" class="visually-hidden">Mo Ta</label>
+                        <label for="mota_insert" >Mo Ta</label>
                         <input type="text"  class="form-control" id="mota_insert" name="mota_insert" placeholder="Mo Ta" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="chatLuong_insert" class="visually-hidden">Chat Luonng</label>
+                        <label for="chatLuong_insert" >Chat Luonng</label>
                         <input type="number"  class="form-control" id="chatLuong_insert" name="chatLuong_insert" placeholder="Chat Luong" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="trangThai_insert" class="visually-hidden">Trang Thai</label>
+                        <label for="trangThai_insert" >Trang Thai</label>
                         <input type="text"  class="form-control" id="trangThai_insert" name="trangThai_insert" placeholder="Trang Thai" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="gia_insert" class="visually-hidden">Gia</label>
+                        <label for="gia_insert" >Gia</label>
                         <input type="number"  class="form-control" id="gia_insert" name="gia_insert" placeholder="Gia" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="nhomSP_insert" class="visually-hidden">Nhom SP</label>
-                        <input type="text"  class="form-control" id="nhomSP_insert" name="nhomSP_insert" placeholder="Nhom SP" >
+                        <label for="nhomSP_insert" >Nhom SP</label>
+                        <select id="nhomSP_insert" name="nhomSP_insert" class="form-control">
+                            <?php 
+                            
+                            loadCategory();
+                            ?>
+                        </select>
                     </div>
 
                     <div class="col-auto">
-                        <label for="NCC_insert" class="visually-hidden">NCC</label>
-                        <input type="text"  class="form-control" id="NCC_insert" name="NCC_insert" placeholder="NCC" >
+                        <label for="NCC_insert" >NCC</label>
+                        <select id="NCC_insert" name="NCC_insert" class="form-control">
+                            <?php 
+                            loadSupplier();
+                            ?>
+                        </select>
                     </div>
 
                     <div class="col-auto">
-                        <label for="ngayNhap_insert" class="visually-hidden">ngay Nhap</label>
+                        <label for="ngayNhap_insert" >ngay Nhap</label>
                         <input type="date"  class="form-control" id="ngayNhap_insert" name="ngayNhap_insert" placeholder="ngay Nhap" >
                     </div>
                     
@@ -86,7 +96,7 @@
             
         <form class="row g-3" method="" action="" enctype="multipart/form-data" >
             <div class="col-auto">
-                <label for="maSP_update" >Ma SP</label> <!--class="visually-hidden"-->
+                <label for="maSP_update" >Ma SP</label> <!---->
                 <input type="text"  class="form-control" id="maSP_update" name="maSP_update" placeholder="Ma SP" readonly="readonly">
             </div>
 
@@ -122,12 +132,21 @@
 
             <div class="col-auto">
                 <label for="nhomSP_update" >Nhom SP</label>
-                <input type="text"  class="form-control" id="nhomSP_update" name="nhomSP_update" placeholder="Nhom SP" >
+                <select id="nhomSP_update" name="nhomSP_update" class="form-control" value="" >
+                    <?php 
+                    
+                    loadCategory();//code selected co trong TH1 
+                    ?>
+                </select>
             </div>
 
             <div class="col-auto">
                 <label for="NCC_update" >NCC</label>
-                <input type="text"  class="form-control" id="NCC_update" name="NCC_update" placeholder="NCC" >
+                <select id="NCC_update" name="NCC_update" class="form-control">
+                    <?php 
+                    loadSupplier();
+                    ?>
+                </select>
             </div>
 
             <div class="col-auto">
@@ -170,59 +189,67 @@
             
         <form class="row g-3" method="" action="" enctype="multipart/form-data" >
         <div class="col-auto">
-                        <label for="maSP_view"  class="visually-hidden">Ma SP</label>
+                        <label for="maSP_view"  >Ma SP</label>
                         <input readonly="readonly" type="text"  class="form-control" id="maSP_view"  name="maSP_view"  placeholder="Ma SP" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="tenSP_view"  class="visually-hidden">Ten SP</label>
+                        <label for="tenSP_view"  >Ten SP</label>
                         <input readonly="readonly" type="text"  class="form-control" id="tenSP_view"  name="tenSP_view"  placeholder="Ten SP" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="hinhAnh_view"  class="visually-hidden">Hinh Anh</label>
+                        <label for="hinhAnh_view"  >Hinh Anh</label>
                         <input readonly="readonly" type="file"  class="form-control" id="hinhAnh_view"  name="hinhAnh_view"  placeholder="Hinh Anh" >
                     </div>
 
                 
 
                     <div class="col-auto">
-                        <label for="mota_view"  class="visually-hidden">Mo Ta</label>
+                        <label for="mota_view"  >Mo Ta</label>
                         <input readonly="readonly" type="text"  class="form-control" id="mota_view"  name="mota_view"  placeholder="Mo Ta" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="chatLuong_view"  class="visually-hidden">Chat Luonng</label>
+                        <label for="chatLuong_view"  >Chat Luonng</label>
                         <input readonly="readonly" type="number"  class="form-control" id="chatLuong_view"  name="chatLuong_view"  placeholder="Chat Luong" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="trangThai_view"  class="visually-hidden">Trang Thai</label>
+                        <label for="trangThai_view"  >Trang Thai</label>
                         <input readonly="readonly" type="text"  class="form-control" id="trangThai_view"  name="trangThai_view"  placeholder="Trang Thai" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="gia_view"  class="visually-hidden">Gia</label>
+                        <label for="gia_view"  >Gia</label>
                         <input readonly="readonly" type="number"  class="form-control" id="gia_view"  name="gia_view"  placeholder="Gia" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="nhomSP_view"  class="visually-hidden">Nhom SP</label>
-                        <input readonly="readonly" type="text"  class="form-control" id="nhomSP_view"  name="nhomSP_view"  placeholder="Nhom SP" >
+                        <label for="nhomSP_view"  >Nhom SP</label>
+                        <select readonly="readonly" disabled id="ncc_view" name="ncc_view" class="form-control">
+                            <?php 
+                            loadCategory();
+                            ?>
+                        </select>
                     </div>
 
                     <div class="col-auto">
-                        <label for="NCC_view"  class="visually-hidden">NCC</label>
-                        <input readonly="readonly" type="text"  class="form-control" id="NCC_view"  name="NCC_view"  placeholder="NCC" >
+                        <label for="NCC_view"  >NCC</label>
+                        <select readonly="readonly" disabled id="NCC_view" name="NCC_view" class="form-control">
+                            <?php 
+                            loadSupplier();
+                            ?>
+                        </select>
                     </div>
 
                     <div class="col-auto">
-                        <label for="ngayNhap_view"  class="visually-hidden">ngay Nhap</label>
+                        <label for="ngayNhap_view"  >ngay Nhap</label>
                         <input readonly="readonly" type="date"  class="form-control" id="ngayNhap_view"  name="ngayNhap_view"  placeholder="ngay Nhap" >
                     </div>
                     <div class="col-auto">
-                        <label for="hienThi_view" class="visually-hidden">Ẩn / hiện</label>
-                        <input type="number"  class="form-control" id="hienThi_view" name="hienThi_view" placeholder="Ẩn hiện" >
+                        <label for="hienThi_view" >Ẩn / hiện</label>
+                        <input readonly="readonly"  type="number"  class="form-control" id="hienThi_view" name="hienThi_view" placeholder="Ẩn hiện" >
                     </div>
                     
                     

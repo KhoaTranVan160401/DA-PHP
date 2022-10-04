@@ -1,35 +1,10 @@
 <?php
-    include './config.php';//$conn
+    include './config2.php';//$conn
     if(isset($_GET['action'])){
-        if($_GET['action']=='getdataAll'){
-            if(isset($_POST['displaySend']  )){
-                $table='';
-                $sql="select * from taikhoan";
-                $ds=mysqli_query($conn,$sql);
-                while($dong=mysqli_fetch_assoc($ds)){
-                    $username='';
-                    $username=$dong['username'];
-                    $password=$dong['password'];
-                    $avatar=$dong['avatar'];
-                    $table.='<tr>
-                    <td>'.$username.'</td>
-                    <td> '.$password.'</td>
-                    <td ><img src="./img/'.$avatar.'" style="width: 50px;height: 50px;"> </td>
-                    <td><a onclick="getDetails(`'.$username.'`)" class="btn btn-warning">Sua</a></td>
-                    <td><a onclick="deleteuser(`'.$username.'`)"  class="btn btn-danger">Xoa</a></td>
-                </tr>';
-                    
-                }
-                
-                
-                echo $table;
-        
-        
-                    }
-        }else if($_GET['action']=='getdataById'){
+        if($_GET['action']=='getdataById'){
             if(isset($_POST['updateid']  )){
                 $accountid=$_POST['updateid'];
-                $sql="select * from `taikhoan` where `username`='$accountid'";
+                $sql="select * from `users` where `ID`='$accountid'";
                 
                 $ds=mysqli_query($conn,$sql);
                 $response=array();
@@ -44,24 +19,40 @@
 
         }else if($_GET['action']=='insert'){
             extract($_POST);
-            if(isset($_POST['username_send']  )&&isset($_POST['password_send']  )&&isset($_POST['avatar_send']  )){
-                $filename = $_POST['filename'];
+            if(isset($_POST['username']  )&&isset($_POST['password']  )&&isset($_POST['avatar']  )){
+                $username=$_POST['username'];
+                $pasword=$_POST['pasword'];
+                $avatar=$_POST['avatar'];
+                $customer_id=$_POST['customer_id'];
+                $type_id=$_POST['type_id'];
+                //$filename = $_POST['filename'];
                 //INSERT INTO `taikhoan` (`username`, `password`, `avatar`) VALUES ('0000', 'kkkkk', 'k.jpg');
-                $sql="insert into `taikhoan` values('$username_send','$password_send','$avatar_send',0)";
+                $sql="INSERT INTO `users` (`ID`, `CUSTOMER_ID`, `USERNAME`, `PASSWORD`, `TYPE_ID`, `IMG`, `STATE`) 
+                VALUES (NULL, '$customer_id', '$username', '$password', '$type_id', '$avatar', '0')";
                 $result=mysqli_query($conn,$sql);
 
             }
 
         }else if($_GET['action']=='update'){
-            if(isset($_POST['username_update']  )){
-                $username_update=$_POST['username_update'];
-                $password_update=$_POST['password_update'];
-                $avatar_update=$_POST['avatar_update'];
-                if($avatar_update==''){
-                    $sql="update `taikhoan` set `password`='$password_update' where `username`='$username_update'";
+            if(isset($_POST['id']  )){
+                
+                $id=$_POST['id'];
+                $username=$_POST['username'];
+                $password=$_POST['password'];
+                $avatar=$_POST['avatar'];
+                $customer_id=$_POST['customer_id'];
+                $type_id=$_POST['type_id'];
+                $state=$_POST['state'];
+
+                if($avatar==''){
+                    $sql="UPDATE `users` 
+                    SET `CUSTOMER_ID` = '$customer_id', `USERNAME` = '$username', `PASSWORD` = '$password',
+                     `TYPE_ID` = '$type_id', `STATE` = '$state' WHERE `users`.`ID` = $id";
         
                 }else{
-                    $sql="update `taikhoan` set `password`='$password_update',`avatar`='$avatar_update' where `username`='$username_update'";
+                    $sql="UPDATE `users` 
+                    SET `CUSTOMER_ID` = '$customer_id', `USERNAME` = '$username', `PASSWORD` = '$password',
+                     `TYPE_ID` = '$type_id', `IMG` = '$avatar', `STATE` = '$state' WHERE `users`.`ID` = $id";
         
                 }
         
@@ -72,11 +63,11 @@
             }
 
         }else if($_GET['action']=='updateState'){
-            if(isset($_POST['username']  )){
-                $username = $_POST['username'];
-                $active = $_POST['active'];
+            if(isset($_POST['id']  )){
+                $id = $_POST['id'];
+                $state = $_POST['state'];
 
-                $sql="update `taikhoan` set `active`='$active' where `username`='$username'";
+                $sql="update `users` set `state`='$state' where `id`='$id'";
 
                 $result=mysqli_query($conn,$sql);
                 
@@ -86,7 +77,7 @@
                 $accountid=$_POST['deleteid'];
         
                 
-                $sql="delete from `taikhoan` where `username`='$accountid'";
+                $sql="delete from `users` where `id`='$accountid'";
         
                 $result=mysqli_query($conn,$sql);
                 

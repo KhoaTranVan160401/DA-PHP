@@ -1,42 +1,10 @@
 <?php
-include_once './config.php';//$conn
+include_once './config2.php';//$conn
     if(isset($_GET['action'])){
-        if($_GET['action']=='getdataAll'){
-            if(isset($_POST['displaySend']  )){
-                $table='';
-                $sql="select * from ncc";
-                $ds=mysqli_query($conn,$sql);
-                while($dong=mysqli_fetch_assoc($ds)){
-                    
-                    $maCty=$dong['maCty'];
-                    $tenCty=$dong['tenCty'];
-                    $tinh=$dong['tinh'];
-                    $dienThoai=$dong['dienThoai'];
-                    
-        
-                    $table.='<tr>
-                    <td>'.$maCty.'</td>
-                    <td> '.$tenCty.'</td>
-                    <td> '.$tinh.'</td>
-                    <td> '.$dienThoai.'</td>
-                   
-                    
-                    <td><a onclick="getDetails(`'.$maCty.'`)" class="btn btn-warning">Sua</a></td>
-                    <td><a onclick="deletesupplier(`'.$maCty.'`)"  class="btn btn-danger">Xoa</a></td>
-                    </tr>';
-                    
-                }
-                
-                
-                echo $table;
-        
-        
-            }
-
-        }else if($_GET['action']=='getdataById'){
+        if($_GET['action']=='getdataById'){
             if(isset($_POST['updateid']  )){
                 $accountid=$_POST['updateid'];
-                $sql="select * from `ncc` where `maCty`='$accountid'";
+                $sql="select * from `supplier` where `SUPPLIER_ID`='$accountid'";
                 
                 $ds=mysqli_query($conn,$sql);
                 $response=array();
@@ -50,27 +18,27 @@ include_once './config.php';//$conn
             }
 
         }if($_GET['action']=='insert'){
-            $maCty=$_POST['maCty'];
-            $tenCty=$_POST['tenCty'];
-            $tinh=$_POST['tinh'];
-            $dienThoai=$_POST['dienThoai'];
+            
+            $company_name=$_POST['company_name'];
+            $location_id=$_POST['location_id'];
+            $phone_number=$_POST['phone_number'];
 
-            $sql="insert into `ncc` values('$maCty','$tenCty','$tinh','$dienThoai')";
+            $sql="INSERT INTO `supplier` (`SUPPLIER_ID`, `COMPANY_NAME`, `LOCATION_ID`, `PHONE_NUMBER`) 
+            VALUES (NULL, '$company_name', '$location_id', '$phone_number')";
             
 
             $result=mysqli_query($conn,$sql);
 
         }if($_GET['action']=='update'){
-            if(isset($_POST['maCty']  )){
-                $maCty=$_POST['maCty'];
-                $tenCty=$_POST['tenCty'];
-                $tinh=$_POST['tinh'];
-                $dienThoai=$_POST['dienThoai'];
+            if(isset($_POST['supplier_id']  )){
+                $supplier_id=$_POST['supplier_id'];
+                $company_name=$_POST['company_name'];
+                $location_id=$_POST['location_id'];
+                $phone_number=$_POST['phone_number'];
                 
-                $sql="UPDATE `ncc` SET `dienThoai` = '$dienThoai',`tenCty` = '$tenCty',`tinh` = '$tinh' WHERE `ncc`.`maCty` = '$maCty';";
-        
-                
-                
+                $sql="UPDATE `supplier` SET `COMPANY_NAME` = '$company_name', `LOCATION_ID` = '$location_id', 
+                `PHONE_NUMBER` = '$phone_number' WHERE `supplier`.`SUPPLIER_ID` = $supplier_id";
+
                 $result=mysqli_query($conn,$sql);
                 
             }
@@ -80,7 +48,7 @@ include_once './config.php';//$conn
                 $accountid=$_POST['deleteid'];
         
                 
-                $sql="delete from `ncc` where `maCty`='$accountid'";
+                $sql="delete from `supplier` where `supplier_id`='$accountid'";
         
                 $result=mysqli_query($conn,$sql);
                 
@@ -88,38 +56,6 @@ include_once './config.php';//$conn
                 
             }
         
-
-        }else if($_GET['action']=='search-suppier'){//search
-            if(isset($_POST['displaySend']  )){
-                $key=$_POST['input'];
-                $table='';
-                $sql="select * from ncc where `maCty` like '{$key}%'  or `tenCty` like '{$key}%' or `tinh` like '{%key}%'  or `dienThoai` like '{%key}%'";
-                $ds=mysqli_query($conn,$sql);
-                while($dong=mysqli_fetch_assoc($ds)){
-                    $maCty=$dong['maCty'];
-                    $tenCty=$dong['tenCty'];
-                    $tinh=$dong['tinh'];
-                    $dienThoai=$dong['dienThoai'];
-                    
-        
-                    $table.='<tr>
-                    <td>'.$maCty.'</td>
-                    <td> '.$tenCty.'</td>
-                    <td> '.$tinh.'</td>
-                    <td> '.$dienThoai.'</td>
-                   
-                    
-                    <td><a onclick="getDetails(`'.$maCty.'`)" class="btn btn-warning">Sua</a></td>
-                    <td><a onclick="deletesupplier(`'.$maCty.'`)"  class="btn btn-danger">Xoa</a></td>
-                    </tr>';
-                    
-                }
-                
-                
-                echo $table;
-        
-        
-            }
 
         }
     }

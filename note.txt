@@ -32,7 +32,10 @@ acc-delete) action=? => ra thao tac xu li tuong ung (OK)
 -view profile - change infomation (OK)
 
 ====================
--Trang trạng thái mua hàng
+
+-TAO MODAL CON THIEU + FUNC PHỤ
+-product.php chưa dôi link img
+-hash md5 mat khau
 
 -Modal Nhap thong tin mua hàng
 
@@ -46,7 +49,9 @@ acc-delete) action=? => ra thao tac xu li tuong ung (OK)
 
 -Phan trang lọc và search
 
-
+-Quan li content
+    +Slider
+    +Blog
 
 
 
@@ -56,5 +61,7 @@ acc-delete) action=? => ra thao tac xu li tuong ung (OK)
 -Thiet ke DB hoan chinh=> insert data chuan
 
 -Report+chart+Xem nhanh
+
+
 
 

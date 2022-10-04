@@ -1,3 +1,4 @@
+
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -30,17 +31,17 @@
                 
             <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                         <div class="col-auto">
-                            <label for="username_insert" class="visually-hidden">Username</label>
+                            <label for="username_insert" >Username</label>
                             <input type="text"  class="form-control" id="username_insert" name="username_insert" placeholder="Usename" >
                         </div>
 
                         <div class="col-auto">
-                            <label for="password_insert" class="visually-hidden">Password</label>
+                            <label for="password_insert" >Password</label>
                             <input type="password" class="form-control" id="password_insert" name="password_insert" placeholder="Password">
                         </div>
 
                         <div class="col-auto">
-                            <label for="avatar_insert" class="visually-hidden">Avatar</label>
+                            <label for="avatar_insert" >Avatar</label>
                             <input type="file"  class="form-control" id="avatar_insert" name="avatar_insert" placeholder="Password">
                         </div>
 
@@ -69,17 +70,17 @@
                 
             <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                         <div class="col-auto">
-                            <label for="username_update" class="visually-hidden">Username_update</label>
+                            <label for="username_update" >Username_update</label>
                             <input type="text"  class="form-control"  id="username_update" name="username_update" placeholder="Usename" readonly="readonly">
                         </div>
 
                         <div class="col-auto">
-                            <label for="password_update" class="visually-hidden">Password_update</label>
+                            <label for="password_update" >Password_update</label>
                             <input type="password_update" class="form-control" id="password_update" name="password_update" placeholder="Password">
                         </div>
 
                         <div class="col-auto">
-                            <label for="avatar_update" class="visually-hidden">Avatar_update</label>
+                            <label for="avatar_update" >Avatar_update</label>
                             <input type="file"  class="form-control" id="avatar_update" name="avatar_update" placeholder="Password">
                         </div>
 

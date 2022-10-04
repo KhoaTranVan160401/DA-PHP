@@ -84,7 +84,7 @@
                             <!-- Button trigger modal -->
 
 
-                           <?php include './Modals/pro-modal.php'?>
+                           <?php include 'forms/pro-modal.php'?>
                             <div class="card-content table-responsive">
                                 <button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#New">ADD</button>
                                 
@@ -92,16 +92,16 @@
                                     <thead class="text-primary">
                                         <tr>
                                             
-                                            <th scope="col">Ma SP</th>
-                                            <th scope="col">Ten SP</th>
-                                            <th scope="col">Hinh Anh</th>
-                                            <th scope="col">Mo Ta</th>
+                                            <th scope="col">Product Code</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Img</th>
+                                            <th scope="col">Description</th>
                                             
-                                            <th scope="col">Gia</th>
-                                            <th scope="col">Hien thi</th>
-                                            <th scope="col">Chi Tiet</th>
-                                            <th scope="col">Sua</th>
-                                            <th scope="col">Xoa</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Publish</th>
+                                            <th scope="col">Details</th>
+                                            <th scope="col">Update</th>
+                                            <th scope="col">Delete</th>
                                             
                                         </tr>
                                     </thead>
@@ -163,8 +163,7 @@
                     "data": "6"
                 },{
                     "data": "7"
-                },
-                {
+                },{
                     "data": "8"
                 }]
             });
@@ -232,7 +231,7 @@
         }
         function uploadfile_for_insert(){
                             //To save file with this name
-                            var file_data = $('#hinhAnh_insert').prop('files')[0];    //Fetch the file
+                            var file_data = $('#img_insert').prop('files')[0];    //Fetch the file
                             filename=file_data['name'];
                             console.log(filename);
                             var form_data = new FormData();
@@ -257,7 +256,7 @@
                             }
                             function uploadfile_for_update(){
                             //To save file with this name
-                            var file_data = $('#hinhAnh_update').prop('files')[0];    //Fetch the file
+                            var file_data = $('#img_update').prop('files')[0];    //Fetch the file
                             filename=file_data['name'];
                             console.log(filename);
                             var form_data = new FormData();
@@ -288,16 +287,19 @@
                                     
                                     var productid =JSON.parse(data);
                                     console.log(productid);
-                                    $('#maSP_update').val(productid.maSP);
-                                    $('#tenSP_update').val(productid.tenSP);
-                                    $('#mota_update').val(productid.moTa);
-                                    $('#chatLuong_update').val(productid.chatLuong);
-                                    $('#trangThai_update').val(productid.trangThai);
-                                    $('#gia_update').val(productid.gia);
-                                    $('#nhomSP_update').val(productid.nhomSP);
-                                    $('#NCC_update').val(productid.ncc);
-                                    $('#ngayNhap_update').val(productid.ngayNhap);
-                                    $('#hienThi_update').val(productid.hienThi);
+                                    $('#product_id_update').val(productid.PRODUCT_ID);
+                                    $('#product_code_update').val(productid.PRODUCT_CODE);
+                                    $('#name_update').val(productid.NAME);
+                                    //$('#img_update').val(productid.IMG);
+                                    $('#description_update').val(productid.DESCRIPTION);
+                                    $('#qty_stock_update').val(productid.QTY_STOCK);
+                                    $('#on_hand_update').val(productid.ON_HAND);
+                                    $('#price_update').val(productid.PRICE);
+                                    $('#category_id_update').val(productid.CATEGORY_ID);
+                                    $('#supplier_id_update').val(productid.SUPPLIER_ID);
+                                    $('#date_stock_in_update').val(productid.DATE_STOCK_IN);
+                                    $('#state_update').val(productid.STATE);
+                                    
                                     
                                     //$('#avatar_update').val(userid.avatar);
 
@@ -314,16 +316,21 @@
                                     
                                     var productid =JSON.parse(data);
                                     console.log(productid);
-                                    $('#maSP_view').val(productid.maSP);
-                                    $('#tenSP_view').val(productid.tenSP);
-                                    $('#mota_view').val(productid.moTa);
-                                    $('#chatLuong_view').val(productid.chatLuong);
-                                    $('#trangThai_view').val(productid.trangThai);
-                                    $('#gia_view').val(productid.gia);
-                                    $('#nhomSP_view').val(productid.nhomSP);
-                                    $('#NCC_view').val(productid.ncc);
-                                    $('#ngayNhap_view').val(productid.ngayNhap);
-                                    $('#hienThi_view').val(productid.hienThi);
+                                    $('#produc_id_view').val(productid.PRODUCT_ID);
+                                    $('#product_code_view').val(productid.PRODUCT_CODE);
+                                    $('#name_view').val(productid.NAME);
+                                    //$('#img_view').val(productid.IMG);
+                                    $('#description_view').val(productid.DESCRIPTION);
+                                    $('#qty_stock_view').val(productid.QTY_STOCK);
+                                    $('#on_hand_view').val(productid.ON_HAND);
+                                    $('#price_view').val(productid.PRICE);
+                                    $('#category_id_view').val(productid.CATEGORY_ID);
+                                    $('#supplier_id_view').val(productid.SUPPLIER_ID);
+                                    $('#date_stock_in_view').val(productid.DATE_STOCK_IN);
+                                    $('#state_view').val(productid.STATE);
+                                    $('#view_number_view').val(productid.VIEW_NUMBER);
+                                    $('#buy_number_view').val(productid.BUY_NUMBER);
+
                                     
                                     //$('#avatar_update').val(userid.avatar);
 
@@ -335,51 +342,54 @@
                             
                             function updateDetails(dataTable){
                                 try{
-                                    var file_data = $('#hinhAnh_update').prop('files')[0];    //Fetch the file
+                                    var file_data = $('#img_update').prop('files')[0];    //Fetch the file
                                     filename=file_data['name'];
 
-                                    var maSP=$('#maSP_update').val();
-                                    var tenSP=$('#tenSP_update').val();
-                                    var hinhAnh=filename;
-                                    var mota=$('#mota_update').val();
-                                    var chatLuong=$('#chatLuong_update').val();
-                                    var trangThai=$('#trangThai_update').val();
-                                    var gia=$('#gia_update').val();
-                                    var nhomSP=$('#nhomSP_update').val();
-                                    var nCC=$('#NCC_update').val();
-                                    var ngayNhap=$('#ngayNhap_update').val();
-                                    var hienThi=$('#hienThi_update').val();
+                                    var product_id=$('#product_id_update').val();
+                                    var product_code=$('#product_code_update').val();
+                                    var name=$('#name_update').val();
+                                    var img=filename;
+                                    var description=$('#description_update').val();
+                                    var qty_stock=$('#qty_stock_update').val();
+                                    var on_hand=$('#on_hand_update').val();
+                                    var price=$('#price_update').val();
+                                    var category_id=$('#category_id_update').val();
+                                    var supplier_id=$('#supplier_id_update').val();
+                                    var date_stock_in=$('#date_stock_in_update').val();
+                                    var state=$('#state_update').val();
                                     
-                                    //console.log(hinhAnh);
+                                    //console.log(img);
                                     $.post("pro-func.php?action=update",{
-                                        maSP:maSP,
-                                        tenSP:tenSP,
-                                        hinhAnh:hinhAnh,
-                                        mota:mota,
-                                        chatLuong:chatLuong,
-                                        trangThai:trangThai,
-                                        gia:gia,
-                                        nhomSP:nhomSP,
-                                        nCC:nCC,
-                                        ngayNhap:ngayNhap,
-                                        hienThi:hienThi
-                        
-                                        
+                                        product_id:product_id,
+                                        product_code:product_code,
+                                        name:name,
+                                        img:img,
+                                        description:description,
+                                        qty_stock:qty_stock,
+                                        on_hand:on_hand,
+                                        price:price,
+                                        category_id:category_id,
+                                        supplier_id:supplier_id,
+                                        date_stock_in:date_stock_in,
+                                        state:state
+
                                     },function(data,status){
+                                        console.log(data);
                                         dataTable.ajax.reload();
                                         uploadfile_for_update();
                                         
                                         
-                                        $('#maSP_update').val('');
-                                        $('#tenSP_update').val('');
-                                        $('#mota_update').val('');
-                                        $('#chatLuong_update').val('');
-                                        $('#trangThai_update').val('');
-                                        $('#gia_update').val('');
-                                        $('#nhomSP_update').val('');
-                                        $('#NCC_update').val('');
-                                        $('#ngayNhap_update').val('');
-                                        $('#hienThi_update').val('');
+                                        $('#product_id_update').val('');
+                                        $('#product_code_update').val('');
+                                        $('#img_update').val('');
+                                        $('#description_update').val('');
+                                        $('#qty_stock_update').val('');
+                                        $('#on_hand_update').val('');
+                                        $('#price_update').val('');
+                                        $('#category_id_update').val('');
+                                        $('#supplier_id_update').val('');
+                                        $('#date_stock_in_update').val('');
+                                        $('#state_update').val('');
 
                                         $('#Edit').modal('hide');
                                         //displayData();
@@ -390,49 +400,52 @@
                                 }catch{
                                     
 
-                                    var maSP=$('#maSP_update').val();
-                                    var tenSP=$('#tenSP_update').val();
-                                    var hinhAnh='';
-                                    var mota=$('#mota_update').val();
-                                    var chatLuong=$('#chatLuong_update').val();
-                                    var trangThai=$('#trangThai_update').val();
-                                    var gia=$('#gia_update').val();
-                                    var nhomSP=$('#nhomSP_update').val();
-                                    var nCC=$('#NCC_update').val();
-                                    var ngayNhap=$('#ngayNhap_update').val();
-                                    var hienThi=$('#hienThi_update').val();
+                                    var product_id=$('#product_id_update').val();
+                                    var product_code=$('#product_code_update').val();
+                                    var name=$('#name_update').val();
+                                    var img='';
+                                    var description=$('#description_update').val();
+                                    var qty_stock=$('#qty_stock_update').val();
+                                    var on_hand=$('#on_hand_update').val();
+                                    var price=$('#price_update').val();
+                                    var category_id=$('#category_id_update').val();
+                                    var supplier_id=$('#supplier_id_update').val();
+                                    var date_stock_in=$('#date_stock_in_update').val();
+                                    var state=$('#state_update').val();
                                     
-                                    console.log(hinhAnh);
+                                    //console.log(img);
                                     $.post("pro-func.php?action=update",{
-                                        maSP:maSP,
-                                        tenSP:tenSP,
-                                        hinhAnh:hinhAnh,
-                                        mota:mota,
-                                        chatLuong:chatLuong,
-                                        trangThai:trangThai,
-                                        gia:gia,
-                                        nhomSP:nhomSP,
-                                        nCC:nCC,
-                                        ngayNhap:ngayNhap,
-                                        hienThi:hienThi
-                                        
+                                        product_id:product_id,
+                                        product_code:product_code,
+                                        name:name,
+                                        img:img,
+                                        description:description,
+                                        qty_stock:qty_stock,
+                                        on_hand:on_hand,
+                                        price:price,
+                                        category_id:category_id,
+                                        supplier_id:supplier_id,
+                                        date_stock_in:date_stock_in,
+                                        state:state
+
                                     },function(data,status){
-                                        
-                                        
+                                        console.log(data);
                                         dataTable.ajax.reload();
-                                        $('#maSP_update').val('');
-                                        $('#tenSP_update').val('');
-                                        $('#mota_update').val('');
-                                        $('#chatLuong_update').val('');
-                                        $('#trangThai_update').val('');
-                                        $('#gia_update').val('');
-                                        $('#nhomSP_update').val('');
-                                        $('#NCC_update').val('');
-                                        $('#ngayNhap_update').val('');
-                                        $('#hienThi_update').val('');
+
+                                        $('#product_id_update').val('');
+                                        $('#product_code_update').val('');
+                                        $('#img_update').val('');
+                                        $('#description_update').val('');
+                                        $('#qty_stock_update').val('');
+                                        $('#on_hand_update').val('');
+                                        $('#price_update').val('');
+                                        $('#category_id_update').val('');
+                                        $('#supplier_id_update').val('');
+                                        $('#date_stock_in_update').val('');
+                                        $('#state_update').val('');
 
                                         $('#Edit').modal('hide');
-                                        ////displayData();
+                                        //displayData();
                                         showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
                                         
 
@@ -442,8 +455,8 @@
                             }
                             function changeState(id,state){
                                 $.post("pro-func.php?action=updateState",{
-                                        maSP:id,
-                                        hienThi:state
+                                        product_id:id,
+                                        state:state
                         
                                         
                                     },function(data,status){
@@ -501,54 +514,58 @@
 
                             function addproduct(dataTable){
                                 try{
-                                    var file_data = $('#hinhAnh_insert').prop('files')[0];    //Fetch the file
+                                    var file_data = $('#img_insert').prop('files')[0];    //Fetch the file
                                     filename=file_data['name'];
 
-                                    var maSP=$('#maSP_insert').val();
-                                    var tenSP=$('#tenSP_insert').val();
-                                    var hinhAnh=filename;
-                                    var mota=$('#mota_insert').val();
-                                    var chatLuong=$('#chatLuong_insert').val();
-                                    var trangThai=$('#trangThai_insert').val();
-                                    var gia=$('#gia_insert').val();
-                                    var nhomSP=$('#nhomSP_insert').val();
-                                    var nCC=$('#NCC_insert').val();
-                                    var ngayNhap=$('#ngayNhap_insert').val();
-                                    
+                                    var product_code=$('#product_code_insert').val();
+                                    var name=$('#name_insert').val();
+                                    var img=filename;
+                                    var description=$('#description_insert').val();
+                                    var qty_stock=$('#qty_stock_insert').val();
+                                    var on_hand=$('#on_hand_insert').val();
+                                    var price=$('#price_insert').val();
+                                    var category_id=$('#category_id_insert').val();
+                                    var supplier_id=$('#supplier_id_insert').val();
+                                    var date_stock_in=$('#date_stock_in_insert').val();
+                                    console.log(filename,product_code,name,description,qty_stock,on_hand,price,category_id,supplier_id,date_stock_in)
 
                                     $.ajax({
                                         url:"pro-func.php?action=insert",
                                         type:"post",
                                         data:{
-                                            maSP:maSP,
-                                            tenSP:tenSP,
-                                            hinhAnh:hinhAnh,
-                                            mota:mota,
-                                            chatLuong:chatLuong,
-                                            trangThai:trangThai,
-                                            gia:gia,
-                                            nhomSP:nhomSP,
-                                            nCC:nCC,
-                                            ngayNhap:ngayNhap,
-                                            hienThi:0
+                                            product_code:product_code,
+                                            name:name,
+                                            img:img,
+                                            description:description,
+                                            qty_stock:qty_stock,
+                                            on_hand:on_hand,
+                                            price:price,
+                                            category_id:category_id,
+                                            supplier_id:supplier_id,
+                                            date_stock_in:date_stock_in,
+
+                                            
                                         },
                                         success:function(data,status){
+                                            console.log(data);
                                             dataTable.ajax.reload();
                                             uploadfile_for_insert();
                                             
-                                            $('#maSP_insert').val('');
-                                            $('#tenSP_insert').val('');
-                                            $('#mota_insert').val('');
-                                            $('#chatLuong_insert').val('');
-                                            $('#trangThai_insert').val('');
-                                            $('#gia_insert').val('');
-                                            $('#nhomSP_insert').val('');
-                                            $('#NCC_insert').val('');
-                                            $('#ngayNhap_insert').val('');
+                                            $('#product_code_insert').val('');
+                                            $('#name_insert').val('');
+                                            $('#description_insert').val('');
+                                            $('#qty_stock_insert').val('');
+                                            $('#on_hand_insert').val('');
+                                            $('#price_insert').val('');
+                                            $('#category_id_insert').val('');
+                                            $('#supplier_id_insert').val('');
+                                            $('#date_stock_in_insert').val('');
                                             
                                             $('#New').modal('hide');
                                             //displayData();
                                             showSuccessMsg('Thanh Cong','Them DL thanh cong','success')
+                                        },error:function(data,status){
+                                            console.error("Loi");
                                         }
 
                                     })

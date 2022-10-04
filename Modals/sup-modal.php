@@ -10,22 +10,22 @@
             
         <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                     <div class="col-auto">
-                        <label for="dienThoai_insert" class="visually-hidden">Ma Cong ty</label>
+                        <label for="dienThoai_insert" >Ma Cong ty</label>
                         <input type="text"  class="form-control" id="maCty_insert" name="maCty_insert" placeholder="Ma Cong ty" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="tinh_insert" class="visually-hidden">Ten Cong ty</label>
+                        <label for="tinh_insert" >Ten Cong ty</label>
                         <input type="text"  class="form-control" id="tenCty_insert" name="tenCty_insert" placeholder="Ten Cong ty" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="tinh_insert" class="visually-hidden">Tinh</label>
+                        <label for="tinh_insert" >Tinh</label>
                         <input type="text"  class="form-control" id="tinh_insert" name="tinh_insert" placeholder="Tinh" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="dienThoai_insert" class="visually-hidden">Dien Thoai</label>
+                        <label for="dienThoai_insert" >Dien Thoai</label>
                         <input type="text"  class="form-control" id="dienThoai_insert" name="dienThoai_insert" placeholder="Dien Thoai" >
                     </div>
 
@@ -52,32 +52,32 @@
         </div>
         <div class="modal-body">
             
-        <form class="row g-3" method="" action="" enctype="multipart/form-data" >
-                    <div class="col-auto">
-                        <label for="maCty_update" class="visually-hidden">Ma Cong ty</label>
-                        <input type="text"  class="form-control" id="maCty_update" name="maCty_update" placeholder="Ma Cong ty" >
-                    </div>
+            <form class="row g-3" method="" action="" enctype="multipart/form-data" >
+                <div class="col-auto">
+                    <label for="maCty_update" >Ma Cong ty</label>
+                    <input readonly="readonly" type="text"  class="form-control" id="maCty_update" name="maCty_update" placeholder="Ma Cong ty" >
+                </div>
 
-                    <div class="col-auto">
-                        <label for="tenCty_update" class="visually-hidden">Ten Cong ty</label>
-                        <input type="text"  class="form-control" id="tenCty_update" name="tenCty_update" placeholder="Ten Cong ty" >
-                    </div>
+                <div class="col-auto">
+                    <label for="tenCty_update" >Ten Cong ty</label>
+                    <input type="text"  class="form-control" id="tenCty_update" name="tenCty_update" placeholder="Ten Cong ty" >
+                </div>
 
-                    <div class="col-auto">
-                        <label for="tinh_update" class="visually-hidden">Tinh</label>
-                        <input type="text"  class="form-control" id="tinh_update" name="tinh_update" placeholder="Tinh" >
-                    </div>
+                <div class="col-auto">
+                    <label for="tinh_update" >Tinh</label>
+                    <input type="text"  class="form-control" id="tinh_update" name="tinh_update" placeholder="Tinh" >
+                </div>
 
-                    <div class="col-auto">
-                        <label for="dienThoai_update" class="visually-hidden">Dien Thoai</label>
-                        <input type="text"  class="form-control" id="dienThoai_update" name="dienThoai_update" placeholder="Dien Thoai" >
-                    </div>
+                <div class="col-auto">
+                    <label for="dienThoai_update" >Dien Thoai</label>
+                    <input type="text"  class="form-control" id="dienThoai_update" name="dienThoai_update" placeholder="Dien Thoai" >
+                </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="Update">Save Changes</button>
-                    </div>
-                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="Update">Save Changes</button>
+                </div>
+            </form>
                 
                 
                 

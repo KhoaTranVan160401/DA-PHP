@@ -79,7 +79,7 @@
                                 <p class="category">Duong dan toi / back ve doashboard</p>
                             </div>
                             <!-- Button trigger modal -->
-                            <?php include './Modals/cus-modal.php'?>
+                            <?php include 'forms/cus-modal.php'?>
 
                            
                             <div class="card-content table-responsive">
@@ -89,14 +89,13 @@
                                     <thead class="text-primary">
                                         <tr>
                                             
-                                            <th scope="col">Ma KH</th>
-                                            <th scope="col">Ten KH</th>
-                                            <th scope="col">Ngay Sinh</th>
-                                            <th scope="col">Gioi Tinh</th>
-                                            <th scope="col">Dia Chi</th>
-                                            <th scope="col">Dien Thoai</th>
-                                            <th scope="col">Sua</th>
-                                            <th scope="col">Xoa</th>
+                                            <th scope="col">FIRST NAME</th>
+                                            <th scope="col">LAST NAME</th>
+                                            
+                                            <th scope="col">PHONE NUMBER</th>
+                                            <th scope="col">LOCATION ID</th>
+                                            <th scope="col">UPDATE</th>
+                                            <th scope="col">DELETE</th>
                                         </tr>
                                     </thead>
                                     <!-- <tbody id="displayDataTable">
@@ -155,10 +154,6 @@
                     "data": "4"
                 },  {
                     "data": "5"
-                },  {
-                    "data": "6"
-                },  {
-                    "data": "7"
                 }]
             });
             $('#sidebarCollapse').on('click', function() {
@@ -274,12 +269,13 @@
             
             $.post("cus-func.php?action=getdataById",{updateid:id},function(data,status){
                 var customer_id =JSON.parse(data);
-                $('#maKH_update').val(customer_id.maKH);
-                $('#tenKH_update').val(customer_id.tenKH);
-                $('#ngaySinh_update').val(customer_id.ngaySinh);
-                $('#gioiTinh_update').val(customer_id.gioiTinh);
-                $('#diaChi_update').val(customer_id.diaChi);
-                $('#dienThoai_update').val(customer_id.dienThoai);
+                console.log(customer_id);
+                $('#cust_id_update').val(customer_id.CUST_ID);
+                $('#first_name_update').val(customer_id.FIRST_NAME);
+                $('#last_name_update').val(customer_id.LAST_NAME);
+                
+                $('#location_id_update').val(customer_id.LOCATION_ID);
+                $('#phone_number_update').val(customer_id.PHONE_NUMBER);
                 //$('#avatar_update').val(userid.avatar);
 
             });
@@ -289,31 +285,31 @@
         }
         
         function updateDetails(dataTable){
-            var maKH=$('#maKH_update').val();
-            var tenKH=$('#tenKH_update').val();
-            var ngaySinh=$('#ngaySinh_update').val();
-            var gioiTinh=$('#gioiTinh_update').val();
-            var diaChi=$('#diaChi_update').val();
-            var dienThoai=$('#dienThoai_update').val();
+            var cust_id=$('#cust_id_update').val();
+            var first_name=$('#first_name_update').val();
+            var last_name=$('#last_name_update').val();
+            
+            var location_id=$('#location_id_update').val();
+            var phone_number=$('#phone_number_update').val();
             
             console.log(1);
             $.post("cus-func.php?action=update",{
-                maKH:maKH,
-                tenKH:tenKH,
-                ngaySinh:ngaySinh,
-                gioiTinh:gioiTinh,
-                diaChi:diaChi,
-                dienThoai:dienThoai
+                cust_id:cust_id,
+                first_name:first_name,
+                last_name:last_name,
+                
+                location_id:location_id,
+                phone_number:phone_number
                 
             },function(data,status){
                 
                 dataTable.ajax.reload();
-                $('#maKH_update').val('');
-                $('#tenKH_update').val('');
-                $('#ngaySinh_update').val('');
-                $('#gioiTinh_update').val('');
-                $('#diaChi_update').val('');
-                $('#dienThoai_update').val('');
+                $('#cust_id_update').val('');
+                $('#first_name_update').val('');
+                $('#last_name_update').val('');
+                
+                $('#location_id_update').val('');
+                $('#phone_number_update').val('');
                 $('#Edit').modal('hide');
                 displayData();
                 showSuccessMsg('Thanh Cong','Sua DL thanh cong','info')
@@ -369,33 +365,33 @@
             try{
                 
 
-                var maKH=$('#maKH_insert').val();
-                var tenKH=$('#tenKH_insert').val();
-                var ngaySinh=$('#ngaySinh_insert').val();
-                var gioiTinh=$('#gioiTinh_insert').val();
-                var diaChi=$('#diaChi_insert').val();
-                var dienThoai=$('#dienThoai_insert').val();                
+                
+                var first_name=$('#first_name_insert').val();
+                var last_name=$('#last_name_insert').val();
+                
+                var location_id=$('#location_id_insert').val();
+                var phone_number=$('#phone_number_insert').val();              
                 $.ajax({
                     url:"cus-func.php?action=insert",
                     type:"post",
                     data:{
-                        maKH:maKH,
-                        tenKH:tenKH,
-                        ngaySinh:ngaySinh,
-                        gioiTinh:gioiTinh,
-                        diaChi:diaChi,
-                        dienThoai:dienThoai
+                        
+                        first_name:first_name,
+                        last_name:last_name,
+                        
+                        location_id:location_id,
+                        phone_number:phone_number
                     },
                     success:function(data,status){
                         //console.log(data)
                         dataTable.ajax.reload();
 
-                        $('#maKH_insert').val('');
-                        $('#tenKH_insert').val('');
-                        $('#ngaySinh_insert').val('');
-                        $('#gioiTinh_insert').val('');
-                        $('#diaChi_insert').val('');
-                        $('#dienThoai_insert').val('');
+                        $('#first_name_insert').val('');
+                        $('#last_name_insert').val('');
+                        $('#location_id_insert').val('');
+                        $('#phone_number_insert').val('');
+                        
+                        
                         
                         $('#New').modal('hide');
                         displayData();

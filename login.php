@@ -349,16 +349,13 @@
                             
                         },
                         success:function(data,status){
-                            console.log(data)
-                            if(data=='AD'){
+                            console.log(data);
+                            if(data==1){
                                 window.location.href='index.php';
                                 showSuccessMsg('Thanh Cong','Dang nhap thanh cong','success')
-                            }else if (data=='User'){
-                                window.location.href='./PHP-PROJECT-COMPONENT/index.php';
-                                showSuccessMsg('Thanh Cong','Dang nhap thanh cong','success');
                             }else{
-                                showSuccessMsg('That bai','Dang nhap that bai','error')
-
+                                window.location.href='./UserPage/index.php';
+                                showSuccessMsg('Thanh Cong','Dang nhap thanh cong','success');
                             }
                             
 

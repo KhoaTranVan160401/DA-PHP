@@ -10,32 +10,32 @@
             
         <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                     <div class="col-auto">
-                        <label for="maKH_insert" class="visually-hidden">Ma KH</label>
+                        <label for="maKH_insert" >Ma KH</label>
                         <input type="text"  class="form-control" id="maKH_insert" name="maKH_insert" placeholder="Ma KH" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="tenKH_insert" class="visually-hidden">Ten KH</label>
+                        <label for="tenKH_insert" >Ten KH</label>
                         <input type="text"  class="form-control" id="tenKH_insert" name="tenKH_insert" placeholder="Ten KH" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="ngaySinh_insert" class="visually-hidden">Ngay Sinh</label>
+                        <label for="ngaySinh_insert" >Ngay Sinh</label>
                         <input type="date"  class="form-control" id="ngaySinh_insert" name="ngaySinh_insert" placeholder="Ngay Sinh" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="gioiTinh_insert" class="visually-hidden">Gioi Tinh</label>
+                        <label for="gioiTinh_insert" >Gioi Tinh</label>
                         <input type="number"  class="form-control" id="gioiTinh_insert" name="gioiTinh_insert" placeholder="Gioi Tinh" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="diaChi_insert" class="visually-hidden">Dia Chi</label>
+                        <label for="diaChi_insert" >Dia Chi</label>
                         <input type="text"  class="form-control" id="diaChi_insert" name="diaChi_insert" placeholder="Dia Chi" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="dienThoai_insert" class="visually-hidden">Dien Thoai</label>
+                        <label for="dienThoai_insert" >Dien Thoai</label>
                         <input type="text"  class="form-control" id="dienThoai_insert" name="dienThoai_insert" placeholder="SDT" >
                     </div>
 
@@ -66,32 +66,32 @@
             
         <form class="row g-3" method="" action="" enctype="multipart/form-data" >
                     <div class="col-auto">
-                        <label for="maKH_update" class="visually-hidden">Ma KH</label>
+                        <label for="maKH_update" >Ma KH</label>
                         <input readonly="readonly" type="text"  class="form-control" id="maKH_update" name="maKH_update" placeholder="Ma KH" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="tenKH_update" class="visually-hidden">Ten KH</label>
+                        <label for="tenKH_update" >Ten KH</label>
                         <input type="text"  class="form-control" id="tenKH_update" name="tenKH_update" placeholder="Ten KH" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="ngaySinh_update" class="visually-hidden">Ngay Sinh</label>
+                        <label for="ngaySinh_update" >Ngay Sinh</label>
                         <input type="date"  class="form-control" id="ngaySinh_update" name="ngaySinh_update" placeholder="Ngay Sinh" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="gioiTinh_update" class="visually-hidden">Gioi Tinh</label>
+                        <label for="gioiTinh_update" >Gioi Tinh</label>
                         <input type="number"  class="form-control" id="gioiTinh_update" name="gioiTinh_update" placeholder="Gioi Tinh" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="diaChi_update" class="visually-hidden">Dia Chi</label>
+                        <label for="diaChi_update" >Dia Chi</label>
                         <input type="text"  class="form-control" id="diaChi_update" name="diaChi_update" placeholder="Dia Chi" >
                     </div>
 
                     <div class="col-auto">
-                        <label for="dienThoai_update" class="visually-hidden">Dien Thoai</label>
+                        <label for="dienThoai_update" >Dien Thoai</label>
                         <input type="text"  class="form-control" id="dienThoai_update" name="dienThoai_update" placeholder="SDT" >
                     </div>
 

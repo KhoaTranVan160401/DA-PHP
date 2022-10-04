@@ -1,48 +1,10 @@
 <?php
-include "./config.php";
+include "./config2.php";
     if(isset($_GET['action'])){
-        if($_GET['action']=='getdataAll'){
-            if(isset($_POST['displaySend']  )){
-                $table='';
-                $sql="select * from sanpham";
-                $ds=mysqli_query($conn,$sql);
-                while($dong=mysqli_fetch_assoc($ds)){
-                    
-                    $maSP=$dong['maSP'];
-                    $tenSP=$dong['tenSP'];
-                    $hinhAnh=$dong['hinhAnh'];
-                    $moTa=$dong['moTa'];
-                    $chatLuong=$dong['chatLuong'];
-                    $trangThai=$dong['trangThai'];
-                    $gia=$dong['gia'];
-                    $nhomSP=$dong['nhomSP'];
-                    $NCC=$dong['NCC'];
-                    $ngayNhap=$dong['ngayNhap'];
-                    
-        
-                    $table.='<tr>
-                    <td>'.$maSP.'</td>
-                    <td> '.$tenSP.'</td>
-                    <td ><img src="./img/'.$hinhAnh.'" style="width: 50px;height: 50px;"> </td>
-                    <td> '.$moTa.'</td>
-                    <td> '.$gia.'</td>
-                    <td><a onclick="getDetails_view(`'.$maSP.'`)" class="btn btn-info">Xem</a></td>v
-                    <td><a onclick="getDetails(`'.$maSP.'`)" class="btn btn-warning">Sua</a></td>
-                    <td><a onclick="deleteproduct(`'.$maSP.'`)"  class="btn btn-danger">Xoa</a></td>
-                    </tr>';
-                    
-                }
-                
-                
-                echo $table;
-        
-        
-                    }
-
-        }else if($_GET['action']=='getdataById'){
+        if($_GET['action']=='getdataById'){
             if(isset($_POST['updateid']  )){
                 $accountid=$_POST['updateid'];
-                $sql="select * from `sanpham` where `maSP`='$accountid'";
+                $sql="select * from `product` where `product_id`='$accountid'";
                 
                 $ds=mysqli_query($conn,$sql);
                 $response=array();
@@ -57,27 +19,23 @@ include "./config.php";
 
         }else if($_GET['action']=='insert'){
             extract($_POST);
-            if(isset($_POST['maSP'])){
-                $maSP = $_POST['maSP'];
-                $tenSP = $_POST['tenSP'];
-                $hinhAnh = $_POST['hinhAnh'];
-                $mota = $_POST['mota'];
-                $chatLuong = $_POST['chatLuong'];
-                $trangThai = $_POST['trangThai'];
-                $gia = $_POST['gia'];
-                $nhomSP = $_POST['nhomSP'];
-                $NCC = $_POST['nCC'];
-                $ngayNhap = $_POST['ngayNhap'];
-                $hienThi = $_POST['hienThi'];
+            if(isset($_POST['product_code'])){
+                $product_code = $_POST['product_code'];
+                $name = $_POST['name'];
+                $img = $_POST['img'];
+                $description = $_POST['description'];
+                $qty_stock = $_POST['qty_stock'];
+                $on_hand = $_POST['on_hand'];
+                $price = $_POST['price'];
+                $category_id = $_POST['category_id'];
+                $supplier_id = $_POST['supplier_id'];
+                $date_stock_in = $_POST['date_stock_in'];
 
-
-                $sql="insert into `sanpham` values('$maSP','$tenSP','$hinhAnh','$mota','$chatLuong','$trangThai','$gia','$nhomSP','$NCC','$ngayNhap','$hienThi')";
-
-                //$sql="insert into `sanpham` values('$maSP','$tenSP','$hinhAnh','$mota','$chatLuong','trangThai','gia','$nhomSP','$NCC','$ngayNhap')";
-                //$sql="INSERT INTO `sanpham` (`maSP`, `tenSP`, `hinhAnh`, `moTa`, `chatLuong`, `trangThai`, `gia`, `nhomSP`, `NCC`, `ngayNhap`) VALUES ('$maSP', '', '', '', 0, '', 0, '', '', '')";
-                //$sql="INSERT INTO `sanpham` (`maSP`, `tenSP`, `hinhAnh`, `moTa`, `chatLuong`, `trangThai`, `gia`, `nhomSP`, `NCC`, `ngayNhap`) VALUES ('SP004', 'tai nghe AKG', 'iphone.png', 'asdasda', '5', 'like new', '78', 'phu kien', 'tengshen', '2022-06-15')";
-
+                $sql="INSERT INTO `product` (`PRODUCT_ID`, `PRODUCT_CODE`, `NAME`, `IMG`, `DESCRIPTION`, `QTY_STOCK`, `ON_HAND`, `PRICE`, `CATEGORY_ID`, `SUPPLIER_ID`, `DATE_STOCK_IN`, `STATE`, `VIEW_NUMBER`, `BUY_NUMBER`)
+                 VALUES (NULL, '$product_code', '$name', '$img', '$description', '$qty_stock', '$on_hand', '$price', '$category_id', '$supplier_id', '$date_stock_in', 0, 0, 0);";
                 $result=mysqli_query($conn,$sql);
+
+                echo $sql;
 
             }
             else{
@@ -85,38 +43,46 @@ include "./config.php";
             }
 
         }else if($_GET['action']=='update'){
-            if(isset($_POST['maSP']  )){
-                $maSP = $_POST['maSP'];
-                $tenSP = $_POST['tenSP'];
-                $hinhAnh = $_POST['hinhAnh'];
-                $mota = $_POST['mota'];
-                $chatLuong = $_POST['chatLuong'];
-                $trangThai = $_POST['trangThai'];
-                $gia = $_POST['gia'];
-                $nhomSP = $_POST['nhomSP'];
-                $NCC = $_POST['nCC'];
-                $ngayNhap = $_POST['ngayNhap'];
-                $hienThi = $_POST['hienThi'];
-                if($hinhAnh==''){
-                    $sql="update `sanpham` set `tenSP`='$tenSP',`moTa`='$mota',`chatLuong`='$chatLuong',`trangThai`='$trangThai',`gia`='$gia',`nhomSP`='$nhomSP',`NCC`='$NCC',`ngayNhap`='$ngayNhap',`hienThi`='$hienThi' where `maSP`='$maSP'";
+            if(isset($_POST['product_code']  )){
+                $product_id = $_POST['product_id'];
+                $product_code = $_POST['product_code'];
+                $name = $_POST['name'];
+                $img = $_POST['img'];
+                $description = $_POST['description'];
+                $qty_stock = $_POST['qty_stock'];
+                $on_hand = $_POST['on_hand'];
+                $price = $_POST['price'];
+                $category_id = $_POST['category_id'];
+                $supplier_id = $_POST['supplier_id'];
+                $date_stock_in = $_POST['date_stock_in'];
+                $state = $_POST['state'];
+
+                if($img==''){
+                    $sql="UPDATE `product` SET `PRODUCT_CODE` = '$product_code', `NAME` = '$name', 
+                    `DESCRIPTION` = '$description', `QTY_STOCK` = '$qty_stock', `ON_HAND` = '$on_hand', `PRICE` = '$price', 
+                    `CATEGORY_ID` = '$category_id', `DATE_STOCK_IN` = '$date_stock_in', `STATE` = '$state' 
+                    WHERE `product`.`PRODUCT_ID` = $product_id";
         
                 }else{
-                    $sql="update `sanpham` set `tenSP`='$tenSP',`hinhAnh`='$hinhAnh',`moTa`='$mota',`chatLuong`='$chatLuong',`trangThai`='$trangThai',`gia`='$gia',`nhomSP`='$nhomSP',`NCC`='$NCC',`ngayNhap`='$ngayNhap',`hienThi`='$hienThi' where `maSP`='$maSP'";
+                    $sql="UPDATE `product` SET `PRODUCT_CODE` = '$product_code', `NAME` = '$name', 
+                    `IMG` = '$img', `DESCRIPTION` = '$description', `QTY_STOCK` = '$qty_stock', `ON_HAND` = '$on_hand', `PRICE` = '$price', 
+                    `CATEGORY_ID` = '$category_id', `DATE_STOCK_IN` = '$date_stock_in', `STATE` = '$state', `VIEW_NUMBER` = '$view', `BUY_NUMBER` = '$buy' 
+                    WHERE `product`.`PRODUCT_ID` = $product_id";
         
                 }
         
-                
+                echo $sql;
                 
                 $result=mysqli_query($conn,$sql);
                 
             }
 
         }else if($_GET['action']=='updateState'){
-            if(isset($_POST['maSP']  )){
-                $maSP = $_POST['maSP'];
-                $hienThi = $_POST['hienThi'];
+            if(isset($_POST['product_id']  )){
+                $product_id = $_POST['product_id'];
+                $state = $_POST['state'];
 
-                $sql="update `sanpham` set `hienThi`='$hienThi' where `maSP`='$maSP'";
+                $sql="UPDATE `product` SET `STATE` = $state WHERE `product`.`PRODUCT_ID` = $product_id";
 
                 $result=mysqli_query($conn,$sql);
                 
@@ -126,7 +92,7 @@ include "./config.php";
                 $accountid=$_POST['deleteid'];
         
                 
-                $sql="delete from `sanpham` where `maSP`='$accountid'";
+                $sql="delete from `product`  where `PRODUCT_ID`='$accountid'";
         
                 $result=mysqli_query($conn,$sql);
                 
@@ -138,7 +104,7 @@ include "./config.php";
             if(isset($_POST['displaySend']  )){
                 $key=$_POST['input'];
                 $table='';
-                $sql="select * from `sanpham` where `maSP` like '{$key}%'  or `tenSP` like '{$key}%' or `moTa` like '{%key}%' ";
+                $sql="select * from `product` where `maSP` like '{$key}%'  or `tenSP` like '{$key}%' or `moTa` like '{%key}%' ";
                 $ds=mysqli_query($conn,$sql);
                 while($dong=mysqli_fetch_assoc($ds)){
                     $maSP=$dong['maSP'];

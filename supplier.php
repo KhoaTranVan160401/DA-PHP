@@ -81,7 +81,7 @@
                             <!-- Button trigger modal -->
 
 
-                           <?php include './Modals/sup-modal.php'?>
+                           <?php include './forms/sup-modal.php'?>
                             <div class="card-content table-responsive">
                                 <button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#New">ADD</button>
                                 
@@ -89,12 +89,12 @@
                                     <thead class="text-primary">
                                         <tr>
                                             
-                                            <th scope="col">Ma Cty</th>
-                                            <th scope="col">Ten Cty</th>
-                                            <th scope="col">Tinh</th>
-                                            <th scope="col">Dien Thoai</th>
-                                            <th scope="col">Sua</th>
-                                            <th scope="col">Xoa</th>
+                                            <th scope="col">COMPANY NAME</th>
+                                            <th scope="col">LOCATION ID</th>
+                                            <th scope="col">PHONE NUMBER</th>
+                                            
+                                            <th scope="col">UPDATE</th>
+                                            <th scope="col">DELETE</th>
                                         </tr>
                                     </thead>
                                     <!-- <tbody id="displayDataTable">
@@ -151,8 +151,6 @@
                     "data": "3"
                 },  {
                     "data": "4"
-                },  {
-                    "data": "5"
                 }]
             });
             $('#sidebarCollapse').on('click', function() {
@@ -253,14 +251,14 @@
                             }
                             function getDetails(id){
                                 
-                                
+                                console.log(id);
                                 $.post("sup-func.php?action=getdataById",{updateid:id},function(data,status){
                                     var supplier_id =JSON.parse(data);
                                     console.log(supplier_id);
-                                    $('#maCty_update').val(supplier_id.maCty);
-                                    $('#tenCty_update').val(supplier_id.tenCty);
-                                    $('#tinh_update').val(supplier_id.tinh);
-                                    $('#dienThoai_update').val(supplier_id.dienThoai);
+                                    $('#supplier_id_update').val(supplier_id.SUPPLIER_ID);
+                                    $('#company_name_update').val(supplier_id.COMPANY_NAME);
+                                    $('#location_id_update').val(supplier_id.LOCATION_ID);
+                                    $('#phone_number_update').val(supplier_id.PHONE_NUMBER);
                                     
                                     //$('#avatar_update').val(userid.avatar);
 
@@ -271,28 +269,25 @@
                             }
                             
                             function updateDetails(dataTable){
-                                var maCty=$('#maCty_update').val();
-                                var tenCty=$('#tenCty_update').val();
-                                var tinh=$('#tinh_update').val();
-                                var dienThoai=$('#dienThoai_update').val();
-                                console.log(dienThoai)
-                                console.log(maCty)
-                                console.log(tenCty)
-                                console.log(tinh)
+                                var supplier_id=$('#supplier_id_update').val();
+                                var company_name=$('#company_name_update').val();
+                                var location_id=$('#location_id_update').val();
+                                var phone_number=$('#phone_number_update').val();
+                                
 
                                 $.post("sup-func.php?action=update",{
-                                    maCty:maCty,
-                                    tenCty:tenCty,
-                                    tinh:tinh,
-                                    dienThoai:dienThoai,
+                                    supplier_id:supplier_id,
+                                    company_name:company_name,
+                                    location_id:location_id,
+                                    phone_number:phone_number,
                                     
                                 },function(data,status){
                                     
                                     dataTable.ajax.reload();
-                                    $('#maCty_update').val('');
-                                    $('#tenCty_update').val('');
-                                    $('#tinh_update').val('');
-                                    $('#dienThoai_update').val('');
+                                    $('#supplier_id').val('');
+                                    $('#company_name').val('');
+                                    $('#location_id').val('');
+                                    $('#phone_number').val('');
                                     
                                     $('#Edit').modal('hide');
                                     displayData();
@@ -348,29 +343,26 @@
 
                             function addsupplier(dataTable){
                                 try{
-                                   
 
-                                    var maCty=$('#maCty_insert').val();
-                                    var tenCty=$('#tenCty_insert').val();
-                                    var tinh=$('#tinh_insert').val();
-                                    var dienThoai=$('#dienThoai_insert').val();           
+                                    var company_name=$('#company_name_insert').val();
+                                    var location_id=$('#location_id_insert').val();
+                                    var phone_number=$('#phone_number_insert').val();           
                                     $.ajax({
                                         url:"sup-func.php?action=insert",
                                         type:"post",
                                         data:{
-                                            maCty:maCty,
-                                            tenCty:tenCty,
-                                            tinh:tinh,
-                                            dienThoai:dienThoai
+                                            company_name:company_name,
+                                            location_id:location_id,
+                                            phone_number:phone_number,
                                         },
                                         success:function(data,status){
                                             //console.log(data)
                                             dataTable.ajax.reload();
 
-                                            $('#maCty_insert').val('');
-                                            $('#tenCty_insert').val('');
-                                            $('#tinh_insert').val('');
-                                            $('#dienThoai_insert').val('');
+                                            $('#company_name_insert').val('');
+                                            $('#location_id_insert').val('');
+                                            $('#phone_number_insert').val('');
+                                            
                                             
                                             $('#New').modal('hide');
                                             displayData();
