@@ -412,7 +412,7 @@
                 if($total){
                 ?>
                 <center>
-                <div class="modal-content " id="checkoutBox">
+                <div class="modal-content" id="checkoutBox">
                     <div class="modal-header" style="width: 100%;">
                         <h5 class="modal-title" id="exampleModalCenterTitle">SUMMARY</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
